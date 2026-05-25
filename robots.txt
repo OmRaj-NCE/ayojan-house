@@ -1,0 +1,8 @@
+# robots.txt — Ayojan House
+# https://ayojanhouse.in
+
+User-agent: *
+Allow: /
+
+# Point crawlers to sitemap
+Sitemap: https://ayojanhouse.in/sitemap.xml

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Ayojan House</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="styles/global.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+  <style>
+    .notfound {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 40px 5%;
+      background: linear-gradient(160deg, var(--ivory) 0%, var(--gold-pale) 100%);
+      position: relative; overflow: hidden;
+    }
+    .notfound::before {
+      content: '404';
+      position: absolute; font-family: var(--font-display);
+      font-size: clamp(160px, 30vw, 320px); font-weight: 700;
+      color: rgba(201,168,76,.07); line-height: 1;
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none; user-select: none;
+      white-space: nowrap;
+    }
+    .notfound__inner { position: relative; z-index: 1; max-width: 520px; }
+    .notfound__icon  { font-size: 4rem; margin-bottom: 20px; display: block; animation: float 5s ease-in-out infinite; }
+    .notfound__title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 600; color: var(--burgundy); margin-bottom: 16px;
+    }
+    .notfound__title em { font-style: italic; color: var(--gold); }
+    .notfound__desc  { color: var(--charcoal-lt); line-height: 1.8; margin-bottom: 36px; }
+    .notfound__links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <section class="notfound" aria-labelledby="notfound-title">
+    <div class="notfound__inner">
+      <span class="notfound__icon">🎊</span>
+      <h1 class="notfound__title" id="notfound-title">
+        Oops! This Page<br/><em>Wasn't Planned</em>
+      </h1>
+      <p class="notfound__desc">
+        Looks like this page has gone off-venue! Don't worry — 
+        Ayojan House always has a backup plan. Let us take you somewhere beautiful.
+      </p>
+      <div class="notfound__links">
+        <a href="index.html"    class="btn btn-primary">Go Home →</a>
+        <a href="contact.html"  class="btn btn-outline">Book an Event</a>
+      </div>
+    </div>
+  </section>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
