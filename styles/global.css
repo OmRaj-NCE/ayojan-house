@@ -383,3 +383,39 @@ html { cursor: none; }
   .footer__grid { grid-template-columns: 1fr; gap: 36px; }
   .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
 }
+
+/* ═══════════════════════════════════════════
+   MOBILE RESPONSIVE FIXES — added patch
+   Targets 400px phones (your screenshot size)
+   ═══════════════════════════════════════════ */
+
+/* Nav mobile tightening */
+@media (max-width: 600px) {
+  .nav { padding: 0 5%; height: 68px; }
+  .nav__logo-name    { font-size: 1.05rem; }
+  .nav__logo-tagline { font-size: 0.55rem; }
+  .nav__logo-emblem  { width: 36px; height: 36px; }
+
+  /* Footer */
+  .footer__grid   { grid-template-columns: 1fr; gap: 36px; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .footer         { padding: 52px 5% 28px; }
+
+  /* Buttons */
+  .btn { padding: 12px 24px; font-size: 0.76rem; }
+
+  /* Section labels */
+  .section-label  { font-size: 0.64rem; letter-spacing: 0.16em; }
+  .section-header { margin-bottom: 40px; }
+
+  /* Kill horizontal scroll */
+  body { overflow-x: hidden; }
+  section, div { max-width: 100%; box-sizing: border-box; }
+  img { height: auto; }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .nav__logo-tagline { display: none; }
+  .footer__col-title { font-size: 0.65rem; }
+}

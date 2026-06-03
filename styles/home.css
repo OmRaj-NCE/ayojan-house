@@ -535,26 +535,138 @@
 .cta-band__actions { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
 
 /* ── ===== RESPONSIVE ===== ── */
+
+/* ── Tablet (max 1024px) ── */
 @media (max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; text-align: center; gap: 40px; padding-top: calc(var(--nav-h) + 20px); }
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    padding-top: calc(var(--nav-h) + 20px);
+    min-height: auto;
+  }
   .hero__visual { max-width: 420px; margin: 0 auto; }
-  .hero__desc { margin-left: auto; margin-right: auto; }
+  .hero__desc   { margin-left: auto; margin-right: auto; }
   .hero__actions { justify-content: center; }
-  .hero__stats { justify-content: center; }
+  .hero__stats   { justify-content: center; }
+
+  /* About */
   .about { grid-template-columns: 1fr; gap: 60px; }
-  .about__visual { max-width: 480px; }
+  .about__visual { max-width: 480px; margin: 0 auto; }
+
+  /* Services */
   .services-teaser__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Stats */
   .stats-bar__inner { grid-template-columns: repeat(2, 1fr); }
+
+  /* Testimonials */
   .testimonial-card { grid-template-columns: 1fr; gap: 32px; }
   .testimonial-card__img-ph,
   .testimonial-card__img { width: 200px; height: 240px; margin: 0 auto; }
+
+  /* Location section two-col → one-col */
+  #location > div[style] {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
 }
-@media (max-width: 640px) {
-  .hero { padding: calc(var(--nav-h) + 10px) 6% 40px; }
-  .hero__title { font-size: 2.4rem; }
+
+/* ── Mobile (max 480px) — catches phones like your 400px screenshot ── */
+@media (max-width: 480px) {
+  /* ─ Hero ─ */
+  .hero {
+    padding: calc(var(--nav-h) + 12px) 5% 44px;
+    gap: 32px;
+  }
+  .hero__title { font-size: 2rem; line-height: 1.12; }
+  .hero__eyebrow { font-size: 0.62rem; padding: 5px 12px; }
+  .hero__desc { font-size: 0.9rem; }
+  .hero__actions { flex-direction: column; align-items: center; gap: 12px; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
   .hero__float-card { display: none; }
-  .services-teaser__grid { grid-template-columns: 1fr; }
-  .stats-bar__inner { grid-template-columns: 1fr 1fr; }
+  .hero__visual { max-width: 300px; }
+
+  /* Hero stats — 3 in a row on phone */
+  .hero__stats { gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .hero__stat-num { font-size: 1.5rem; }
+  .hero__stat-label { font-size: 0.65rem; }
+
+  /* ─ Ticker ─ */
+  .ticker__item { font-size: 0.7rem; padding: 0 18px; }
+
+  /* ─ About ─ */
+  .about { padding: 60px 5%; gap: 40px; }
+  .about__visual { max-width: 100%; }
+  .about__img-grid {
+    grid-template-rows: 160px 160px;
+    gap: 10px;
+  }
+  .about__badge {
+    width: 88px; height: 88px;
+    bottom: -16px; right: -8px;
+  }
+  .about__badge-num { font-size: 1.5rem; }
+  .about__badge-label { font-size: 0.55rem; }
+  .about__quote { font-size: 0.95rem; padding: 14px 16px; }
+  .about__features { gap: 10px; }
+  .about__content .btn { width: 100%; justify-content: center; }
+
+  /* ─ Stats bar ─ */
+  .stats-bar { padding: 48px 5%; }
+  .stats-bar__inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .stats-bar__num { font-size: 1.8rem; }
+  .stats-bar__label { font-size: 0.68rem; }
+  /* Remove the left-border dividers on mobile */
+  .stats-bar__item + .stats-bar__item::before { display: none; }
+
+  /* ─ Services teaser ─ */
+  .services-teaser { padding: 60px 5%; }
+  .services-teaser__grid { grid-template-columns: 1fr; gap: 18px; }
+  .service-card { padding: 28px 22px; }
+  .service-card__icon { width: 52px; height: 52px; font-size: 1.5rem; margin-bottom: 18px; }
+  .service-card__title { font-size: 1.2rem; }
+
+  /* ─ Testimonials ─ */
+  .testimonials { padding: 60px 5%; }
+  .testimonial-card { padding: 0 2%; }
+  .testimonials__slider { overflow: hidden; }
+  .testimonial-card__quote-mark { font-size: 5rem; margin-bottom: -28px; }
+  .testimonial-card__text { font-size: 1rem; }
+  .testimonials__btn { width: 40px; height: 40px; font-size: 0.95rem; }
+
+  /* ─ FAQ ─ */
+  .faq { padding: 60px 5%; }
+  .faq-item__q-text { font-size: 0.98rem; }
+
+  /* ─ Location section ─ */
+  #location { padding: 60px 5% !important; }
+  #location > div[style] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  #location .btn { width: 100%; justify-content: center; }
+
+  /* ─ CTA band ─ */
+  .cta-band { padding: 64px 5%; }
+  .cta-band__title { font-size: 1.8rem; }
+  .cta-band__actions { flex-direction: column; align-items: center; }
+  .cta-band__actions .btn { width: 100%; justify-content: center; }
+
+  /* ─ Section headers ─ */
+  .section-title { font-size: 1.9rem; }
+  .section-subtitle { font-size: 0.88rem; }
+}
+
+/* ── Very small phones (max 380px) ── */
+@media (max-width: 380px) {
+  .hero__title { font-size: 1.75rem; }
+  .hero__visual { max-width: 260px; }
+  .stats-bar__inner { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stats-bar__num { font-size: 1.5rem; }
+  .service-card__bg-num { display: none; }
   .testimonial-card { padding: 0; }
-  .testimonials__slider { overflow: visible; }
+  .hero__stats { gap: 14px; }
+  .hero__stat-num { font-size: 1.3rem; }
 }
