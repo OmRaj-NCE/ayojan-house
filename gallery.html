@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Event Gallery | Weddings, Photography & Corporate Events | Ayojan House</title>
+
+<meta name="description"
+content="Explore our event gallery featuring weddings, pre wedding shoots, corporate events, award nights, birthday parties, baby showers, catering and luxury decor across Patna and Bihar.">
+
+<meta name="keywords"
+content="Wedding Gallery Patna, Event Gallery Bihar, Corporate Event Photos, Wedding Photography Portfolio, Event Planner Portfolio Patna">
+
+<meta property="og:title" content="Event Gallery | Ayojan House Portfolio">
+<meta property="og:description" content="Explore real weddings, corporate events, photography and celebrations by Ayojan House.">
+<meta property="og:image" content="https://ayojan-house.vercel.app/assets/images/og-gallery.jpg">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="styles/global.css">
+<link rel="stylesheet" href="styles/animations.css">
+
+<style>
+  /* ===== GALLERY ENHANCED STYLES - EYE SOOTHING ===== */
+  :root {
+    --gold: #C9A84C;
+    --gold-dark: #a8872e;
+    --charcoal: #1f2937;
+    --charcoal-lt: #4b5563;
+    --cream: #faf6ee;
+    --white: #ffffff;
+  }
+
+  /* Container override for better breathing space */
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Hero Section - softer */
+  .gallery-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: clamp(60px, 10vw, 100px) 24px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201, 168, 76, 0.15);
+    backdrop-filter: blur(4px);
+    padding: 6px 20px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .gallery-hero h1 {
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    font-weight: 700;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.2;
+  }
+  .gallery-hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Filter Tabs - centered with comfortable spacing */
+  .filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 50px auto 40px;
+    max-width: 1000px;
+  }
+  .filter-btn {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+    color: var(--charcoal);
+    font-size: 0.9rem;
+  }
+  .filter-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .filter-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: white;
+    box-shadow: 0 4px 12px rgba(201,168,76,0.3);
+  }
+
+  /* Gallery Grid - spacious */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+    margin: 40px 0 60px;
+  }
+  .gallery-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+  }
+  .gallery-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+  }
+  .card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #f1f5f9;
+  }
+  .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .gallery-card:hover img {
+    transform: scale(1.05);
+  }
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+    padding: 20px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .gallery-card:hover .card-overlay {
+    opacity: 1;
+  }
+  .card-overlay span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .card-info {
+    padding: 20px 18px 22px;
+    background: var(--white);
+  }
+  .card-info h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--charcoal);
+  }
+  .card-info p {
+    color: var(--charcoal-lt);
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  /* Section Headers - elegant */
+  .section-header-custom {
+    text-align: center;
+    margin: 80px 0 40px;
+  }
+  .section-header-custom h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 14px;
+    color: var(--charcoal);
+  }
+  .section-header-custom h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 3px;
+  }
+
+  /* Video Grid - balanced */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+  }
+  .video-card {
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+  }
+  .video-card:hover {
+    transform: translateY(-5px);
+  }
+  .video-card video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .video-card .card-info {
+    background: var(--white);
+    text-align: center;
+  }
+
+  /* Stats Section - softer */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin: 60px 0 70px;
+    text-align: center;
+  }
+  .stat-item {
+    background: var(--white);
+    padding: 24px 36px;
+    border-radius: 80px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+    min-width: 150px;
+  }
+  .stat-item h3 {
+    font-size: 2.3rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .stat-item p {
+    color: var(--charcoal-lt);
+    font-weight: 500;
+  }
+
+  /* SEO & CTA - elegant blocks */
+  .gallery-seo, .gallery-cta {
+    background: var(--cream);
+    padding: 60px 40px;
+    text-align: center;
+    border-radius: 32px;
+    margin: 50px 0;
+  }
+  .gallery-seo h2, .gallery-cta h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 24px;
+  }
+  .gallery-seo p {
+    max-width: 800px;
+    margin: 18px auto;
+    color: var(--charcoal-lt);
+    line-height: 1.7;
+  }
+  .gallery-cta {
+    background: linear-gradient(135deg, #6B0F2B 0%, #8a1a3a 100%);
+    color: white;
+  }
+  .gallery-cta h2 {
+    color: white;
+  }
+  .gallery-cta p {
+    color: rgba(255,255,255,0.9);
+  }
+  .gallery-cta a {
+    display: inline-block;
+    background: var(--gold);
+    color: #1f2937;
+    padding: 14px 42px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-top: 28px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1rem;
+  }
+  .gallery-cta a:hover {
+    background: #d4af37;
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .hide {
+    display: none;
+  }
+
+  /* Responsive: more padding on mobile */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 20px;
+    }
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .filter-tabs {
+      gap: 10px;
+      margin: 40px auto 30px;
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .filter-btn {
+      padding: 8px 22px;
+      font-size: 0.85rem;
+      flex: 0 0 auto;
+    }
+    .stats-grid {
+      gap: 20px;
+    }
+    .stat-item {
+      padding: 16px 24px;
+      min-width: 120px;
+    }
+    .stat-item h3 {
+      font-size: 1.8rem;
+    }
+    .video-grid {
+      gap: 20px;
+    }
+    .gallery-seo, .gallery-cta {
+      padding: 40px 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+    .stat-item {
+      min-width: 100px;
+      padding: 12px 16px;
+    }
+  }
+
+  /* Animation on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav__logo" aria-label="Ayojan House Home">
+      <div class="nav__logo-emblem" aria-hidden="true"></div>
+      <div class="nav__logo-text">
+        <span class="nav__logo-name">Ayojan House</span>
+        <span class="nav__logo-tagline">Event Planners · Patna</span>
+      </div>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html" class="nav__link">Home</a></li>
+      <li><a href="index.html#about" class="nav__link">About</a></li>
+      <li><a href="services.html" class="nav__link">Services</a></li>
+      <li><a href="gallery.html" class="nav__link active">Gallery</a></li>
+      <li><a href="index.html#faq" class="nav__link">FAQ</a></li>
+      <li><a href="contact.html" class="nav__link nav__cta">Book Now</a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav__mobile" role="dialog" aria-modal="true">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary">Book Your Event</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="gallery-hero">
+    <div class="container">
+      <div class="hero-badge">✦ Our Portfolio</div>
+      <h1>Moments We Crafted.<br>Memories We Captured.</h1>
+      <p>Explore weddings, celebrations, corporate events, photography projects and unforgettable experiences created by Ayojan House.</p>
+    </div>
+  </section>
+
+  <!-- Filter Tabs -->
+  <div class="container">
+    <div class="filter-tabs" id="filterTabs">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="wedding">Weddings</button>
+      <button class="filter-btn" data-filter="photography">Photography</button>
+      <button class="filter-btn" data-filter="corporate">Corporate</button>
+      <button class="filter-btn" data-filter="birthday">Birthdays</button>
+      <button class="filter-btn" data-filter="babyshower">Baby Showers</button>
+      <button class="filter-btn" data-filter="decor">Decor</button>
+      <button class="filter-btn" data-filter="catering">Catering</button>
+    </div>
+  </div>
+
+  <!-- Unified Gallery Grid -->
+  <div class="container">
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Wedding items -->
+      <a href="services/mehndi.html" class="gallery-card" data-category="wedding">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%236B0F2B'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='48'%3E💍%3C/text%3E%3C/svg%3E" alt="Luxury Wedding"></div>
+        <div class="card-info"><h3>Luxury Wedding</h3><p>Mehndi · Haldi · Sangeet</p></div>
+        <div class="card-overlay"><span>View Project →</span></div>
+      </a>
+      <a href="services/sangeet.html" class="gallery-card" data-category="wedding">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23C9A84C'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236B0F2B' font-size='48'%3E🎵%3C/text%3E%3C/svg%3E" alt="Royal Sangeet"></div>
+        <div class="card-info"><h3>Royal Sangeet Night</h3><p>Entertainment & Dance</p></div>
+        <div class="card-overlay"><span>View Project →</span></div>
+      </a>
+      <a href="services/haldi.html" class="gallery-card" data-category="wedding">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23e8b86b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236B0F2B' font-size='44'%3E🌼 Haldi%3C/text%3E%3C/svg%3E" alt="Haldi"></div>
+        <div class="card-info"><h3>Haldi Ceremony</h3><p>Traditional rituals & floral decor</p></div>
+        <div class="card-overlay"><span>View Service →</span></div>
+      </a>
+      <a href="services/varmala.html" class="gallery-card" data-category="wedding">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%232d6a4f'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E🌸 Varmala%3C/text%3E%3C/svg%3E" alt="Varmala"></div>
+        <div class="card-info"><h3>Varmala Ceremony</h3><p>Floral garlands & grand stage</p></div>
+        <div class="card-overlay"><span>View Service →</span></div>
+      </a>
+      <a href="services/grand-entry.html" class="gallery-card" data-category="wedding">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%234a2e1e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23E9C46A' font-size='44'%3E👑 Grand Entry%3C/text%3E%3C/svg%3E" alt="Grand Entry"></div>
+        <div class="card-info"><h3>Grand Entry</h3><p>Dramatic bride & groom entrances</p></div>
+        <div class="card-overlay"><span>View Service →</span></div>
+      </a>
+      <a href="services/mandap-decor.html" class="gallery-card" data-category="wedding decor">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23b5651d'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23F4D03F' font-size='44'%3E🛕 Mandap%3C/text%3E%3C/svg%3E" alt="Mandap Decor"></div>
+        <div class="card-info"><h3>Mandap Decor</h3><p>Elegant wedding mandap designs</p></div>
+        <div class="card-overlay"><span>View Service →</span></div>
+      </a>
+
+      <!-- Photography items -->
+      <a href="services/wedding-photography.html" class="gallery-card" data-category="photography">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23333'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E📸 Wedding%3C/text%3E%3C/svg%3E" alt="Wedding Photography"></div>
+        <div class="card-info"><h3>Wedding Photography</h3><p>Cinematic wedding coverage</p></div>
+        <div class="card-overlay"><span>View Portfolio →</span></div>
+      </a>
+      <a href="services/pre-wedding-shoot.html" class="gallery-card" data-category="photography">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23555'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E💑 Pre Wedding%3C/text%3E%3C/svg%3E" alt="Pre Wedding"></div>
+        <div class="card-info"><h3>Pre Wedding Shoot</h3><p>Romantic couple storytelling</p></div>
+        <div class="card-overlay"><span>View Portfolio →</span></div>
+      </a>
+      <a href="services/post-wedding-shoot.html" class="gallery-card" data-category="photography">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E🌅 Post Wedding%3C/text%3E%3C/svg%3E" alt="Post Wedding"></div>
+        <div class="card-info"><h3>Post Wedding Shoot</h3><p>Couple portraits after marriage</p></div>
+        <div class="card-overlay"><span>View Portfolio →</span></div>
+      </a>
+      <a href="services/drone-shoot.html" class="gallery-card" data-category="photography">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23222'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E✈️ Drone%3C/text%3E%3C/svg%3E" alt="Drone"></div>
+        <div class="card-info"><h3>Drone Shoot</h3><p>Aerial event coverage</p></div>
+        <div class="card-overlay"><span>View Portfolio →</span></div>
+      </a>
+      <a href="services/maternity-shoot.html" class="gallery-card" data-category="photography">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23666'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E🤰 Maternity%3C/text%3E%3C/svg%3E" alt="Maternity"></div>
+        <div class="card-info"><h3>Maternity Shoot</h3><p>Celebrating motherhood</p></div>
+        <div class="card-overlay"><span>View Portfolio →</span></div>
+      </a>
+
+      <!-- Corporate items -->
+      <a href="services/corporate-events.html" class="gallery-card" data-category="corporate">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%231e3a5f'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E🏢 Corporate%3C/text%3E%3C/svg%3E" alt="Corporate"></div>
+        <div class="card-info"><h3>Corporate Events</h3><p>Conferences & galas</p></div>
+        <div class="card-overlay"><span>View Projects →</span></div>
+      </a>
+      <a href="services/product-launches.html" class="gallery-card" data-category="corporate">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%232a4f6e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E🚀 Product Launch%3C/text%3E%3C/svg%3E" alt="Product Launch"></div>
+        <div class="card-info"><h3>Product Launches</h3><p>High-impact unveilings</p></div>
+        <div class="card-overlay"><span>View Projects →</span></div>
+      </a>
+      <a href="services/award-nights.html" class="gallery-card" data-category="corporate">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%233d2b1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E🏆 Award Night%3C/text%3E%3C/svg%3E" alt="Award Night"></div>
+        <div class="card-info"><h3>Award Nights</h3><p>Recognition galas</p></div>
+        <div class="card-overlay"><span>View Projects →</span></div>
+      </a>
+      <a href="services/conferences.html" class="gallery-card" data-category="corporate">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%231f4a3c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E🎤 Conference%3C/text%3E%3C/svg%3E" alt="Conference"></div>
+        <div class="card-info"><h3>Conferences</h3><p>Leadership summits</p></div>
+        <div class="card-overlay"><span>View Projects →</span></div>
+      </a>
+
+      <!-- Family Celebrations -->
+      <a href="services/birthday-party.html" class="gallery-card" data-category="birthday">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23C9A84C'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236B0F2B' font-size='48'%3E🎂%3C/text%3E%3C/svg%3E" alt="Birthday"></div>
+        <div class="card-info"><h3>Birthday Parties</h3><p>Themed celebrations for all ages</p></div>
+        <div class="card-overlay"><span>View Service →</span></div>
+      </a>
+      <a href="services/baby-shower.html" class="gallery-card" data-category="babyshower">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%23b3d9ff'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236B0F2B' font-size='48'%3E👶%3C/text%3E%3C/svg%3E" alt="Baby Shower"></div>
+        <div class="card-info"><h3>Baby Shower</h3><p>Welcoming new beginnings</p></div>
+        <div class="card-overlay"><span>View Service →</span></div>
+      </a>
+
+      <!-- Decor & Catering -->
+      <a href="services/decor.html" class="gallery-card" data-category="decor">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%238a4428'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E🌸 Decor%3C/text%3E%3C/svg%3E" alt="Decor"></div>
+        <div class="card-info"><h3>Event Decoration</h3><p>Floral & themed design</p></div>
+        <div class="card-overlay"><span>View Service →</span></div>
+      </a>
+      <a href="services/catering.html" class="gallery-card" data-category="catering">
+        <div class="card-img-wrapper"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 450'%3E%3Crect width='600' height='450' fill='%233a1a05'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23C9A84C' font-size='44'%3E🍽️ Catering%3C/text%3E%3C/svg%3E" alt="Catering"></div>
+        <div class="card-info"><h3>Catering Services</h3><p>Multi-cuisine & live counters</p></div>
+        <div class="card-overlay"><span>View Service →</span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Video Showcase -->
+  <div class="container">
+    <div class="section-header-custom reveal">
+      <h2>Video Highlights</h2>
+    </div>
+    <div class="video-grid reveal">
+      <div class="video-card"><video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23111'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dominant-baseline='middle'%3EWedding Film%3C/text%3E%3C/svg%3E"><source src="assets/videos/wedding-film.mp4" type="video/mp4"></video><div class="card-info"><h3>Wedding Cinematic</h3></div></div>
+      <div class="video-card"><video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23222'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dominant-baseline='middle'%3ESangeet Night%3C/text%3E%3C/svg%3E"><source src="assets/videos/sangeet-highlights.mp4" type="video/mp4"></video><div class="card-info"><h3>Sangeet Highlights</h3></div></div>
+      <div class="video-card"><video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23333'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dominant-baseline='middle'%3EDrone Coverage%3C/text%3E%3C/svg%3E"><source src="assets/videos/drone-coverage.mp4" type="video/mp4"></video><div class="card-info"><h3>Aerial Drone Shots</h3></div></div>
+      <div class="video-card"><video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23444'/%3E%3Ctext x='50%25' y='50%25' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECorporate Event%3C/text%3E%3C/svg%3E"><source src="assets/videos/corporate-recap.mp4" type="video/mp4"></video><div class="card-info"><h3>Corporate Recap</h3></div></div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="container reveal">
+    <div class="stats-grid">
+      <div class="stat-item"><h3>500+</h3><p>Events Managed</p></div>
+      <div class="stat-item"><h3>1000+</h3><p>Happy Clients</p></div>
+      <div class="stat-item"><h3>50+</h3><p>Corporate Projects</p></div>
+      <div class="stat-item"><h3>10+</h3><p>Years Experience</p></div>
+    </div>
+  </div>
+
+  <!-- SEO Content -->
+  <div class="container reveal">
+    <div class="gallery-seo">
+      <h2>Event Portfolio Across Patna & Bihar</h2>
+      <p>Our gallery showcases wedding planning, wedding photography, corporate events, product launches, award nights, birthday celebrations, baby showers, catering services and luxury event decoration projects across Bihar.</p>
+      <p>Explore real projects completed by Ayojan House and discover how we transform ideas into memorable experiences.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="container reveal">
+    <div class="gallery-cta">
+      <h2>Let's Create Your Next Celebration</h2>
+      <p>Speak with our event experts and bring your vision to life.</p>
+      <a href="contact.html">Get Free Consultation ✦</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__grid">
+    <div><div class="footer__brand-name">Ayojan House</div><p class="footer__brand-desc">Bihar's premier event planning company, crafting extraordinary celebrations since 2012. Based in Danapur, Patna — trusted across the state.</p><div class="footer__social"><a href="#" class="footer__social-link">f</a><a href="#" class="footer__social-link">in</a><a href="#" class="footer__social-link">▶</a><a href="#" class="footer__social-link">✉</a></div></div>
+    <div><div class="footer__col-title">Quick Links</div><ul class="footer__col-links"><li><a href="index.html">Home</a></li><li><a href="index.html#about">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="index.html#faq">FAQ</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    <div><div class="footer__col-title">Our Services</div><ul class="footer__col-links"><li><a href="services.html#weddings">Wedding Planning</a></li><li><a href="services.html#corporate">Corporate Events</a></li><li><a href="services/birthday-party.html">Birthday Parties</a></li><li><a href="services/baby-shower.html">Baby Shower</a></li><li><a href="services/catering.html">Catering & Decor</a></li></ul></div>
+    <div><div class="footer__col-title">Get In Touch</div><div class="footer__contact-item"><span class="footer__contact-icon">📍</span><span>Mithila Colony, Danapur, Patna, Bihar 800012</span></div><div class="footer__contact-item"><span class="footer__contact-icon">📞</span><a href="tel:+918210856330">+91 82108 56330</a></div><div class="footer__contact-item"><span class="footer__contact-icon">✉</span><a href="mailto:hello@ayojanhouse.in">hello@ayojanhouse.in</a></div><div style="margin-top:20px;"><a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.75rem;">Book Now ✦</a></div></div>
+  </div>
+  <div class="footer__bottom"><span>© 2024 Ayojan House. All rights reserved.</span><span class="footer__bottom-love">Made with ♥ in Patna, Bihar</span></div>
+</footer>
+
+<script src="scripts/main.js"></script>
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryCards = document.querySelectorAll('.gallery-card');
+
+  function filterGallery(filterValue) {
+    galleryCards.forEach(card => {
+      const categories = card.getAttribute('data-category') || '';
+      if (filterValue === 'all' || categories.includes(filterValue)) {
+        card.classList.remove('hide');
+      } else {
+        card.classList.add('hide');
+      }
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterGallery(btn.getAttribute('data-filter'));
+    });
+  });
+
+  const revealElements = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+  }, { threshold: 0.1 });
+  revealElements.forEach(el => observer.observe(el));
+
+  filterGallery('all');
+</script>
+</body>
+</html>
