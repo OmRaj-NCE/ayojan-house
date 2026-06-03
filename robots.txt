@@ -4,5 +4,4 @@
 User-agent: *
 Allow: /
 
-# Point crawlers to sitemap
-Sitemap: https://ayojanhouse.in/sitemap.xml
+Sitemap: https://ayojan-house.vercel.app/sitemap.xml

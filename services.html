@@ -80,7 +80,7 @@
       </div>
     </section>
 
-    <!-- UPDATED STICKY SERVICE NAVIGATION (4 key pillars) -->
+    <!-- STICKY SERVICE NAVIGATION (updated to include Corporate) -->
     <nav class="service-nav" aria-label="Jump to service">
       <div class="service-nav__inner">
         <a href="#weddings"      class="service-nav__item"><span class="service-nav__item-icon">💍</span> Wedding Services</a>
@@ -91,7 +91,7 @@
     </nav>
 
     <!-- ═══════════════════════════════════════ -->
-    <!-- 1. WEDDING SERVICES (existing, enhanced) -->
+    <!-- 1. WEDDING SERVICES (existing)         -->
     <!-- ═══════════════════════════════════════ -->
     <section class="service-section" id="weddings">
       <div class="service-section__inner">
@@ -133,7 +133,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════ -->
-    <!-- 2. NEW PHOTOGRAPHY SECTION (added as requested) -->
+    <!-- 2. PHOTOGRAPHY SERVICES (existing)     -->
     <!-- ═══════════════════════════════════════ -->
     <section class="service-section" id="photography">
       <div class="service-section__inner">
@@ -167,42 +167,51 @@
       </div>
     </section>
 
-    <!-- ══ CORPORATE (unchanged, stays independent) ══ -->
-    <section class="service-section" id="corporate" aria-labelledby="corporate-title">
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 3. CORPORATE SERVICES (NEW CARD GRID as requested)         -->
+    <!--    Replaces previous detailed corporate section             -->
+    <!--    id="corporate" ensures sticky nav works seamlessly      -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="service-section" id="corporate">
       <div class="service-section__inner">
-        <div class="service-layout reveal">
-          <div class="service-visual">
-            <div class="service-visual__main">
-              <div class="service-visual__main-ph" style="background:linear-gradient(145deg,#1c3a5e,#2a5a8a);">
-                <span class="ph-icon">🏢</span>
-                <span class="ph-label">Corporate Event</span>
-                <span class="ph-sublabel">images/service-corporate.jpg</span>
-              </div>
-            </div>
-            <div class="service-visual__badge">
-              <div class="service-visual__badge-icon">🤝</div>
-              <div><div class="service-visual__badge-val">80+</div><div class="service-visual__badge-lbl">Companies Served</div></div>
-            </div>
-            <div class="service-visual__thumbs">
-              <div class="service-visual__thumb"><div class="service-visual__thumb-ph" style="background:linear-gradient(135deg,#2c5a2e,#3d8040);">📊</div></div>
-              <div class="service-visual__thumb"><div class="service-visual__thumb-ph" style="background:linear-gradient(135deg,#5a2c1a,#8a4428);">🏆</div></div>
-            </div>
-          </div>
-          <div class="service-content">
-            <span class="service-tag">B2B Excellence</span>
-            <h2 class="service-title" id="corporate-title">Corporate <em>Events</em> & Conferences</h2>
-            <p class="service-desc">Your corporate events reflect your brand. Ayojan House partners with leading companies across Bihar for professionally managed annual days, conferences, product launches, and boardroom galas.</p>
-            <p class="service-desc">Precision AV, on-brand staging, and seamless hospitality — we ensure every event positions your company at its best.</p>
-            <div class="service-includes"><div class="service-includes-title">What's Included</div><div class="service-includes-grid"><div class="service-include-item">Stage & podium design</div><div class="service-include-item">LED backdrop & AV</div><div class="service-include-item">Branding & signage</div><div class="service-include-item">Guest registration</div><div class="service-include-item">Award night management</div><div class="service-include-item">Conference logistics</div><div class="service-include-item">Product launch setups</div><div class="service-include-item">Corporate catering</div></div></div>
-            <div class="service-packages"><span class="service-pkg">Conference · ₹80K+</span><span class="service-pkg highlight">Annual Day · ₹2L+</span><span class="service-pkg">Gala · Custom</span></div>
-            <a href="contact.html?service=corporate" class="btn btn-primary">Discuss Your Event →</a>
-          </div>
+        <div class="section-header reveal">
+          <div class="section-label">Business & Corporate Excellence</div>
+          <h2 class="section-title">Corporate <em>Services</em></h2>
+          <p class="section-subtitle">
+            Precision-driven conference management, award galas, product launches and high-impact corporate events.
+          </p>
+        </div>
+        <div class="service-category-grid">
+          <!-- Corporate Events -->
+          <a href="services/corporate-events.html" class="service-category-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231e3a5f'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='64' fill='%23C9A84C'%3E🏢%3C/text%3E%3C/svg%3E" alt="Corporate Events">
+            <div class="service-category-card__overlay"><h3>Corporate Events</h3><span>Explore Service →</span></div>
+          </a>
+          <!-- Product Launches -->
+          <a href="services/product-launches.html" class="service-category-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%232a4f6e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='64' fill='%23C9A84C'%3E🚀%3C/text%3E%3C/svg%3E" alt="Product Launches">
+            <div class="service-category-card__overlay"><h3>Product Launches</h3><span>Explore Service →</span></div>
+          </a>
+          <!-- Award Nights -->
+          <a href="services/award-nights.html" class="service-category-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%233d2b1a'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='64' fill='%23C9A84C'%3E🏆%3C/text%3E%3C/svg%3E" alt="Award Nights">
+            <div class="service-category-card__overlay"><h3>Award Nights</h3><span>Explore Service →</span></div>
+          </a>
+          <!-- Conferences -->
+          <a href="services/conferences.html" class="service-category-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231f4a3c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='64' fill='%23C9A84C'%3E🎤%3C/text%3E%3C/svg%3E" alt="Conferences">
+            <div class="service-category-card__overlay"><h3>Conferences</h3><span>Explore Service →</span></div>
+          </a>
+        </div>
+        <!-- Optional extra description line for corporate -->
+        <div style="text-align: center; margin-top: 28px; font-size: 0.95rem; color: var(--charcoal-lt, #4b5563);">
+          ✦ From boardroom summits to grand award galas — elevate your business gatherings with Ayojan House ✦
         </div>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════ -->
-    <!-- CELEBRATIONS HUB (id="celebrations") : wraps Birthday, Theme Parties & Catering -->
+    <!-- CELEBRATIONS HUB (Birthdays, Catering)  -->
     <!-- ═══════════════════════════════════════ -->
     <div id="celebrations">
       <!-- BIRTHDAYS SECTION -->
@@ -221,27 +230,6 @@
               <div class="service-includes"><div class="service-includes-title">What's Included</div><div class="service-includes-grid"><div class="service-include-item">Custom theme décor</div><div class="service-include-item">Balloon arrangements</div><div class="service-include-item">Cake & cutting setup</div><div class="service-include-item">Backdrop & photo wall</div><div class="service-include-item">Entrance decoration</div><div class="service-include-item">Guest favours</div><div class="service-include-item">Entertainment & games</div><div class="service-include-item">Catering options</div></div></div>
               <div class="service-packages"><span class="service-pkg">Basic · ₹25K+</span><span class="service-pkg highlight">Grand · ₹75K+</span><span class="service-pkg">Premium · ₹1.5L+</span></div>
               <a href="contact.html?service=birthday" class="btn btn-primary">Plan a Birthday →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- THEME PARTIES SECTION -->
-      <section class="service-section" id="theme" aria-labelledby="theme-title">
-        <div class="service-section__inner">
-          <div class="service-layout reveal">
-            <div class="service-visual">
-              <div class="service-visual__main"><div class="service-visual__main-ph" style="background:linear-gradient(145deg,#1a1a3e,#3a2070);"><span class="ph-icon">🎉</span><span class="ph-label">Theme Party</span><span class="ph-sublabel">images/service-theme.jpg</span></div></div>
-              <div class="service-visual__badge"><div class="service-visual__badge-icon">🎭</div><div><div class="service-visual__badge-val">50+</div><div class="service-visual__badge-lbl">Unique Themes</div></div></div>
-              <div class="service-visual__thumbs"><div class="service-visual__thumb"><div class="service-visual__thumb-ph" style="background:linear-gradient(135deg,#6B0F2B,#a01840);">🕌</div></div><div class="service-visual__thumb"><div class="service-visual__thumb-ph" style="background:linear-gradient(135deg,#1c6b3c,#2a9a58);">🌴</div></div></div>
-            </div>
-            <div class="service-content">
-              <span class="service-tag">Creative Special</span>
-              <h2 class="service-title" id="theme-title">Themed <em>Parties</em> & Experiences</h2>
-              <p class="service-desc">Step into Mughal-era Pataliputra, an enchanted forest, or a Bollywood blockbuster night. Our team builds immersive environments that transport guests — we custom-design any theme you imagine.</p>
-              <div class="service-includes"><div class="service-includes-title">Popular Themes We've Built</div><div class="service-includes-grid"><div class="service-include-item">Royal Mughal Darbar</div><div class="service-include-item">Bollywood Night</div><div class="service-include-item">Tropical Beach Party</div><div class="service-include-item">Enchanted Forest</div><div class="service-include-item">Black & Gold Gala</div><div class="service-include-item">Retro 70s</div><div class="service-include-item">Superhero Universe</div><div class="service-include-item">Winter Wonderland</div></div></div>
-              <div class="service-packages"><span class="service-pkg">Standard · ₹50K+</span><span class="service-pkg highlight">Immersive · ₹1.5L+</span><span class="service-pkg">Custom · Quote</span></div>
-              <a href="contact.html?service=theme" class="btn btn-primary">Design My Theme →</a>
             </div>
           </div>
         </div>
@@ -268,7 +256,7 @@
         </div>
       </section>
     </div>
-    <!-- END OF CELEBRATIONS WRAPPER -->
+    <!-- END CELEBRATIONS WRAPPER -->
 
     <!-- ══ PROCESS (unchanged) ══ -->
     <section class="process" aria-labelledby="process-title">
@@ -314,18 +302,109 @@
       </div>
     </section>
 
-    <!-- ══ MASSIVE SEO BLOCK (added before CTA) ══ -->
-    <section class="services-seo">
-      <div class="container">
-        <h2>Event Planning Services In Patna & Bihar</h2>
-        <p>Ayojan House is a premium event planning company in Patna specializing in wedding planning, wedding photography, pre wedding shoots, post wedding shoots, drone photography, maternity photography, corporate events, birthday celebrations and luxury event management.</p>
-        <p>Our wedding services include Haldi ceremony planning, Mehndi decoration, Sangeet night management, Varmala ceremonies, Grand Entry concepts and Mandap decoration services throughout Bihar.</p>
-        <p>We serve clients across Patna, Danapur, Hajipur, Bihta, Gaya, Muzaffarpur, Bhagalpur and other cities in Bihar.</p>
+    <!-- MASSIVE SEO BLOCK (unchanged) -->
+    <section class="services-seo"
+    style="
+    padding:clamp(50px,8vw,90px) 20px;
+    background:linear-gradient(180deg,#fffdf8 0%,#faf6ee 100%);
+    position:relative;
+    overflow:hidden;
+    ">
+      <div class="container"
+      style="
+      max-width:1100px;
+      margin:auto;
+      background:#ffffff;
+      padding:clamp(25px,4vw,50px);
+      border-radius:24px;
+      box-shadow:0 20px 60px rgba(0,0,0,.06);
+      border:1px solid rgba(193,154,107,.18);
+      text-align:center;
+      position:relative;
+      z-index:2;
+      ">
+        <span style="
+        display:inline-block;
+        padding:8px 18px;
+        border-radius:50px;
+        background:rgba(193,154,107,.1);
+        color:#c19a6b;
+        font-size:.8rem;
+        letter-spacing:3px;
+        text-transform:uppercase;
+        margin-bottom:18px;
+        font-weight:600;
+        ">
+          Premium Event Management
+        </span>
+        <h2 style="
+        font-size:clamp(2rem,5vw,3.5rem);
+        line-height:1.15;
+        margin-bottom:22px;
+        color:#1f2937;
+        font-weight:700;
+        ">
+          Event Planning Services In Patna & Bihar
+        </h2>
+        <div style="
+        width:90px;
+        height:3px;
+        background:linear-gradient(90deg,#c19a6b,#d4af37);
+        margin:0 auto 30px;
+        border-radius:50px;
+        "></div>
+        <p style="
+        font-size:clamp(1rem,2vw,1.15rem);
+        line-height:1.9;
+        color:#555;
+        margin-bottom:18px;
+        max-width:950px;
+        margin-left:auto;
+        margin-right:auto;
+        ">
+          Ayojan House is a premium event planning company in Patna specializing in wedding planning, wedding photography, pre wedding shoots, post wedding shoots, drone photography, maternity photography, corporate events, birthday celebrations and luxury event management.
+        </p>
+        <p style="
+        font-size:clamp(1rem,2vw,1.15rem);
+        line-height:1.9;
+        color:#555;
+        margin-bottom:18px;
+        max-width:950px;
+        margin-left:auto;
+        margin-right:auto;
+        ">
+          Our wedding services include Haldi ceremony planning, Mehndi decoration, Sangeet night management, Varmala ceremonies, Grand Entry concepts and Mandap decoration services throughout Bihar.
+        </p>
+        <p style="
+        font-size:clamp(1rem,2vw,1.15rem);
+        line-height:1.9;
+        color:#555;
+        max-width:950px;
+        margin-left:auto;
+        margin-right:auto;
+        ">
+          We serve clients across Patna, Danapur, Hajipur, Bihta, Gaya, Muzaffarpur, Bhagalpur and other cities in Bihar.
+        </p>
+        <div style="
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+        margin-top:35px;
+        ">
+          <span style="padding:10px 18px;background:#faf6ee;border-radius:50px;font-size:.9rem;">Wedding Planning</span>
+          <span style="padding:10px 18px;background:#faf6ee;border-radius:50px;font-size:.9rem;">Photography</span>
+          <span style="padding:10px 18px;background:#faf6ee;border-radius:50px;font-size:.9rem;">Corporate Events</span>
+          <span style="padding:10px 18px;background:#faf6ee;border-radius:50px;font-size:.9rem;">Birthday Events</span>
+          <span style="padding:10px 18px;background:#faf6ee;border-radius:50px;font-size:.9rem;">Luxury Celebrations</span>
+        </div>
       </div>
     </section>
 
-    <!-- CTA SECTION (unchanged) -->
-    <section class="cta-band" aria-labelledby="services-cta-title">
+    <!-- CTA SECTION -->
+    <section class="cta-band"
+    style="padding:clamp(60px,8vw,100px) 20px; margin-top:0; background:linear-gradient(180deg,#faf6ee 0%,#ffffff 100%);"
+    aria-labelledby="services-cta-title">
       <div class="cta-band__bg" aria-hidden="true"></div>
       <div class="cta-band__inner reveal">
         <div class="section-label" style="justify-content:center;">Start Planning</div>
@@ -336,12 +415,12 @@
     </section>
   </main>
 
-  <!-- FOOTER (pre-wedding link removed) -->
+  <!-- FOOTER (unchanged) -->
   <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div><div class="footer__brand-name">Ayojan House</div><p class="footer__brand-desc">Bihar's premier event planning company, crafting extraordinary celebrations since 2012. Based in Danapur, Patna — trusted across the state.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Facebook">f</a><a href="#" class="footer__social-link" aria-label="Instagram">in</a><a href="#" class="footer__social-link" aria-label="YouTube">▶</a><a href="#" class="footer__social-link" aria-label="WhatsApp">✉</a></div></div>
       <div><div class="footer__col-title">Quick Links</div><ul class="footer__col-links"><li><a href="index.html">Home</a></li><li><a href="index.html#about">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="index.html#faq">FAQ</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-      <div><div class="footer__col-title">Our Services</div><ul class="footer__col-links"><li><a href="#weddings">Wedding Planning</a></li><li><a href="#photography">Photography</a></li><li><a href="#corporate">Corporate Events</a></li><li><a href="#celebrations">Celebrations</a></li><li><a href="#theme">Theme Parties</a></li><li><a href="#catering">Catering & Décor</a></li></ul></div>
+      <div><div class="footer__col-title">Our Services</div><ul class="footer__col-links"><li><a href="#weddings">Wedding Planning</a></li><li><a href="#photography">Photography</a></li><li><a href="#corporate">Corporate Events</a></li><li><a href="#celebrations">Celebrations</a></li><li><a href="#birthdays">Birthday Parties</a></li><li><a href="#catering">Catering & Décor</a></li></ul></div>
       <div><div class="footer__col-title">Get In Touch</div><div class="footer__contact-item"><span class="footer__contact-icon">📍</span><span>Mithila Colony, Danapur, Patna, Bihar 800012</span></div><div class="footer__contact-item"><span class="footer__contact-icon">📞</span><a href="tel:+918210856330">+91 82108 56330</a></div><div class="footer__contact-item"><span class="footer__contact-icon">✉</span><a href="mailto:hello@ayojanhouse.in">hello@ayojanhouse.in</a></div><div style="margin-top:20px;"><a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.75rem;">Book Now ✦</a></div></div>
     </div>
     <div class="footer__bottom"><span>© 2024 Ayojan House. All rights reserved.</span><span class="footer__bottom-love">Made with ♥ in Patna, Bihar</span></div>
@@ -349,7 +428,7 @@
 
   <script src="scripts/main.js"></script>
   <script>
-    // Enhanced scroll highlighting for the updated nav (weddings, photography, corporate, celebrations)
+    // Enhanced scroll highlighting for service nav (weddings, photography, corporate, celebrations)
     const navLinks = document.querySelectorAll('.service-nav__item');
     const sectionsMap = new Map();
     navLinks.forEach(link => {
