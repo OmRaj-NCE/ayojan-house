@@ -372,50 +372,58 @@ html { cursor: none; }
 .reveal-right { opacity: 0; transform: translateX( 50px); transition: opacity .8s ease, transform .8s ease; }
 .reveal-left.visible, .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
-/* ── Responsive nav ── */
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — NAV & GLOBAL
+   ═══════════════════════════════════════════════ */
+
+/* Show hamburger, hide desktop links on tablet */
 @media (max-width: 900px) {
-  .nav__links { display: none; }
+  .nav__links    { display: none; }
   .nav__hamburger { display: flex; }
-  .nav__mobile { display: flex; }
-}
-@media (max-width: 600px) {
-  .nav { padding: 0 6%; }
-  .footer__grid { grid-template-columns: 1fr; gap: 36px; }
-  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .nav__mobile   { display: flex; }
 }
 
-/* ═══════════════════════════════════════════
-   MOBILE RESPONSIVE FIXES — added patch
-   Targets 400px phones (your screenshot size)
-   ═══════════════════════════════════════════ */
-
-/* Nav mobile tightening */
-@media (max-width: 600px) {
-  .nav { padding: 0 5%; height: 68px; }
+/* ── Mobile: 640px and below ── */
+@media (max-width: 640px) {
+  /* Nav */
+  .nav {
+    padding: 0 5%;
+    height: 68px;
+  }
   .nav__logo-name    { font-size: 1.05rem; }
   .nav__logo-tagline { font-size: 0.55rem; }
   .nav__logo-emblem  { width: 36px; height: 36px; }
 
   /* Footer */
-  .footer__grid   { grid-template-columns: 1fr; gap: 36px; }
+  .footer__grid   { grid-template-columns: 1fr !important; gap: 32px; }
   .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
   .footer         { padding: 52px 5% 28px; }
 
   /* Buttons */
-  .btn { padding: 12px 24px; font-size: 0.76rem; }
+  .btn { padding: 12px 22px; font-size: 0.76rem; }
 
-  /* Section labels */
-  .section-label  { font-size: 0.64rem; letter-spacing: 0.16em; }
+  /* Section headers */
+  .section-label  { font-size: 0.64rem; letter-spacing: 0.15em; }
   .section-header { margin-bottom: 40px; }
 
-  /* Kill horizontal scroll */
-  body { overflow-x: hidden; }
-  section, div { max-width: 100%; box-sizing: border-box; }
-  img { height: auto; }
+  /* CRITICAL: stop horizontal overflow */
+  html, body     { overflow-x: hidden; max-width: 100%; }
+  .hero, .about, .stats-bar, .services-teaser,
+  .testimonials, .faq, .cta-band, .ticker,
+  section, header, footer { max-width: 100%; overflow-x: hidden; }
+  img { max-width: 100%; height: auto; }
 }
 
-/* Very small phones */
-@media (max-width: 380px) {
+/* ── Very small phones: 400px and below ── */
+@media (max-width: 400px) {
+  .nav { height: 64px; }
+  .nav__logo-name    { font-size: 0.95rem; }
   .nav__logo-tagline { display: none; }
-  .footer__col-title { font-size: 0.65rem; }
+  .nav__logo-emblem  { width: 32px; height: 32px; }
+
+  /* Footer col text smaller */
+  .footer__col-title { font-size: 0.64rem; }
+  .footer__col-links a { font-size: 0.82rem; }
+  .footer__brand-desc { font-size: 0.82rem; }
 }
