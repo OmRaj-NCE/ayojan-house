@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Ayojan House Blog | Event Planning Insights, Wedding Ideas & Party Inspiration | Patna, Bihar</title>
   <meta name="description" content="Explore Ayojan House blog for expert event planning tips, wedding decoration ideas, corporate event strategies, and celebration inspiration. Based in Patna, serving Bihar." />
   <meta name="keywords" content="event planning blog Patna, wedding ideas Bihar, party decoration tips, corporate event management blog, Ayojan House blog" />
@@ -23,7 +23,7 @@
   <meta name="twitter:title" content="Ayojan House Blog | Event Planning & Celebration Ideas" />
   <meta name="twitter:description" content="Expert tips, wedding inspiration, and event management insights from Patna's most trusted event planners." />
   
-  <!-- JSON-LD Structured Data for Blog -->
+  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,19 +47,29 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%236B0F2B'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-size='18' fill='%23C9A84C' font-family='Georgia'%3EA%3C/text%3E%3C/svg%3E" />
   
   <style>
-    /* Blog Page Specific Styles – complements global.css */
-    :root {
-      --blog-card-shadow: 0 8px 20px rgba(0,0,0,0.05);
-      --blog-card-hover: 0 20px 35px rgba(0,0,0,0.08);
+    /* ----- Enhanced responsive styles (no edge sticking) ----- */
+    * {
+      cursor: pointer;
     }
-    *{
-        cursor: pointer;
+    /* Ensure no horizontal overflow */
+    body {
+      overflow-x: hidden;
     }
+    /* Container utility – consistent side spacing */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* Hero section */
     .blog-header {
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      padding: clamp(60px, 10vw, 100px) 24px;
+      padding: clamp(60px, 10vw, 100px) 0;
       text-align: center;
       color: white;
+    }
+    .blog-header .container {
+      padding: 0 24px;
     }
     .blog-header h1 {
       font-size: clamp(2rem, 5vw, 3.5rem);
@@ -70,6 +80,7 @@
       margin: 0 auto;
       opacity: 0.9;
     }
+    /* Blog main container – responsive grid */
     .blog-container {
       max-width: 1400px;
       margin: 0 auto;
@@ -78,13 +89,7 @@
       grid-template-columns: 1fr 320px;
       gap: 50px;
     }
-    @media (max-width: 992px) {
-      .blog-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-    }
-    /* Posts Grid */
+    /* Posts grid */
     .posts-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -94,7 +99,7 @@
       background: white;
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: var(--blog-card-shadow);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
       text-decoration: none;
       color: inherit;
@@ -102,7 +107,7 @@
     }
     .post-card:hover {
       transform: translateY(-8px);
-      box-shadow: var(--blog-card-hover);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.08);
     }
     .post-img {
       width: 100%;
@@ -145,7 +150,7 @@
       border-top: 1px solid #e5e7eb;
       padding-top: 12px;
     }
-    /* Sidebar */
+    /* Sidebar – sticky, responsive */
     .sidebar {
       background: #f9fafb;
       border-radius: 24px;
@@ -256,19 +261,104 @@
       border-color: #C9A84C;
       color: white;
     }
+    /* CTA section – consistent with container */
+    .cta-wrapper {
+      margin: 0 0 80px;
+    }
+    .gallery-cta {
+      background: linear-gradient(135deg, #6B0F2B 0%, #8a1a3a 100%);
+      border-radius: 32px;
+      padding: clamp(40px, 6vw, 60px) clamp(24px, 5vw, 40px);
+      text-align: center;
+      color: white;
+    }
+    .gallery-cta h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-bottom: 16px;
+    }
+    .gallery-cta p {
+      margin-bottom: 24px;
+    }
+    .gallery-cta .btn-gold {
+      background: #C9A84C;
+      color: #1f2937;
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .gallery-cta .btn-gold:hover {
+      background: #b8922a;
+    }
+    /* Responsive breakpoints */
+    @media (max-width: 992px) {
+      .blog-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .sidebar {
+        position: static;
+      }
+    }
+    @media (max-width: 768px) {
+      .container, .blog-header .container, .blog-container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .blog-container {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+      .posts-grid {
+        gap: 24px;
+      }
+      .sidebar {
+        padding: 24px;
+      }
+    }
     @media (max-width: 640px) {
       .posts-grid {
         grid-template-columns: 1fr;
       }
-      .blog-container {
-        padding: 40px 20px;
+      .post-title {
+        font-size: 1.2rem;
       }
+      .pagination {
+        flex-wrap: wrap;
+      }
+    }
+    @media (max-width: 480px) {
+      .container, .blog-header .container, .blog-container {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .blog-container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+      .post-content {
+        padding: 16px;
+      }
+    }
+    /* Hero badge style (consistent with other pages) */
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201, 168, 76, 0.15);
+      backdrop-filter: blur(4px);
+      padding: 6px 20px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      color: #C9A84C;
+      margin-bottom: 24px;
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER (same as other pages) -->
+  <!-- HEADER (consistent with site) -->
   <header>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <a href="index.html" class="nav__logo" aria-label="Ayojan House Home">
@@ -313,9 +403,9 @@
       </div>
     </section>
 
-    <!-- BLOG CONTAINER (Posts + Sidebar) -->
+    <!-- BLOG MAIN CONTENT (Posts + Sidebar) -->
     <div class="blog-container">
-      <!-- MAIN CONTENT: POSTS GRID -->
+      <!-- POSTS GRID -->
       <div>
         <div class="posts-grid" id="postsGrid">
           <!-- Post 1 -->
@@ -448,17 +538,17 @@
       </aside>
     </div>
 
-    <!-- CTA SECTION -->
-    <div class="container" style="margin-bottom: 80px;">
-      <div class="gallery-cta" style="background: linear-gradient(135deg, #6B0F2B 0%, #8a1a3a 100%); border-radius: 32px; padding: 60px 40px; text-align: center; color: white;">
-        <h2 style="font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 16px;">Plan Your Dream Event With Us</h2>
-        <p style="margin-bottom: 24px;">From weddings to corporate galas – let's create something extraordinary together.</p>
-        <a href="contact.html" class="btn btn-gold" style="background: #C9A84C; color: #1f2937;">Get Free Consultation ✦</a>
+    <!-- CTA SECTION (fully responsive) -->
+    <div class="container cta-wrapper">
+      <div class="gallery-cta">
+        <h2>Plan Your Dream Event With Us</h2>
+        <p>From weddings to corporate galas – let's create something extraordinary together.</p>
+        <a href="contact.html" class="btn-gold">Get Free Consultation ✦</a>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER (matching site) -->
+  <!-- FOOTER (unchanged, already responsive) -->
   <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div>
@@ -508,7 +598,7 @@
 
   <script src="scripts/main.js"></script>
   <script>
-    // Simple mobile menu toggle (if not already handled by global.js)
+    // Mobile menu toggle (ensures compatibility)
     const hamburger = document.querySelector('.nav__hamburger');
     const mobileNav = document.querySelector('.nav__mobile');
     if (hamburger && mobileNav) {
