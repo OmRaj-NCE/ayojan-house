@@ -415,6 +415,14 @@ html { cursor: none; }
   img { max-width: 100%; height: auto; }
 }
 
+@media (max-width: 550px) {
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+}
+
 /* ── Very small phones: 400px and below ── */
 @media (max-width: 400px) {
   .nav { height: 64px; }
