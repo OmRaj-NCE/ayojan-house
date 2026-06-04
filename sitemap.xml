@@ -1,39 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- HOME PAGE — highest priority -->
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>https://ayojanhouse.in/</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://ayojan-house.vercel.app/</loc>
   </url>
 
-  <!-- SERVICES PAGE -->
   <url>
-    <loc>https://ayojanhouse.in/services.html</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://ayojan-house.vercel.app/about.html</loc>
   </url>
 
-  <!-- GALLERY PAGE -->
   <url>
-    <loc>https://ayojanhouse.in/gallery.html</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://ayojan-house.vercel.app/services.html</loc>
   </url>
 
-  <!-- CONTACT PAGE -->
   <url>
-    <loc>https://ayojanhouse.in/contact.html</loc>
-    <lastmod>2024-12-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://ayojan-house.vercel.app/gallery.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/contact.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/blog.html</loc>
+  </url>
+
+  <!-- Wedding Services -->
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/haldi.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/mehndi.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/sangeet.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/varmala.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/grand-entry.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/mandap-decor.html</loc>
+  </url>
+
+  <!-- Photography -->
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/wedding-photography.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/pre-wedding-shoot.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/post-wedding-shoot.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/drone-shoot.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/maternity-shoot.html</loc>
+  </url>
+
+  <!-- Corporate -->
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/corporate-events.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/product-launches.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/award-nights.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/conferences.html</loc>
+  </url>
+
+  <!-- Family Celebrations -->
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/birthday-party.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/baby-shower.html</loc>
+  </url>
+
+  <!-- Event Essentials -->
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/catering.html</loc>
+  </url>
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/services/decor.html</loc>
+  </url>
+
+  <!-- Utility -->
+
+  <url>
+    <loc>https://ayojan-house.vercel.app/404.html</loc>
   </url>
 
 </urlset>
