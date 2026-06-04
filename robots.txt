@@ -1,7 +1,8 @@
-# robots.txt — Ayojan House
-# https://ayojanhouse.in
-
 User-agent: *
+
 Allow: /
+
+Disallow: /assets/
+Disallow: /scripts/
 
 Sitemap: https://ayojan-house.vercel.app/sitemap.xml
