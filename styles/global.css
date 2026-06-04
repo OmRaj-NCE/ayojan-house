@@ -167,8 +167,8 @@ html { cursor: none; }
 
 /* Hamburger */
 .nav__hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  width: 28px; padding: 4px 0; z-index: 1001;
+  display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none;
+  width: 28px; padding: 4px 1px; z-index: 1001;
 }
 .nav__hamburger span {
   display: block; height: 2px;
@@ -190,7 +190,7 @@ html { cursor: none; }
   opacity: 0; pointer-events: none;
   transition: opacity var(--transition);
 }
-.nav__mobile.open { opacity: 1; pointer-events: all; }
+.nav__mobile.open { opacity: 1; pointer-events: all; transform: translateX(0);}
 .nav__mobile .nav__link {
   font-size: 1.6rem;
   font-family: var(--font-display);
