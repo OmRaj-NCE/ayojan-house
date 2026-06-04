@@ -3,53 +3,199 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found | Ayojan House</title>
+  <title>404 – Page Not Found | Ayojan House</title>
+  <meta name="description" content="The page you're looking for seems to have wandered off. But don't worry – Ayojan House always has a backup plan. Let us guide you back to something beautiful." />
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://ayojanhouse.in/404.html" />
   <link rel="stylesheet" href="styles/global.css" />
   <link rel="stylesheet" href="styles/animations.css" />
   <style>
+    :root {
+      --ivory: #fdfaf6;
+      --gold-pale: #fff8e7;
+      --burgundy: #6B0F2B;
+      --gold: #C9A84C;
+      --charcoal-lt: #4b5563;
+    }
     .notfound {
       min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 40px 5%;
-      background: linear-gradient(160deg, var(--ivory) 0%, var(--gold-pale) 100%);
-      position: relative; overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 5%;
+      background: linear-gradient(145deg, var(--ivory) 0%, var(--gold-pale) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    /* animated floating background shapes */
+    .notfound::before,
+    .notfound::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
     .notfound::before {
-      content: '404';
-      position: absolute; font-family: var(--font-display);
-      font-size: clamp(160px, 30vw, 320px); font-weight: 700;
-      color: rgba(201,168,76,.07); line-height: 1;
-      top: 50%; left: 50%; transform: translate(-50%,-50%);
-      pointer-events: none; user-select: none;
-      white-space: nowrap;
+      top: -100px;
+      left: -100px;
+      animation: floatShape 20s infinite alternate;
     }
-    .notfound__inner { position: relative; z-index: 1; max-width: 520px; }
-    .notfound__icon  { font-size: 4rem; margin-bottom: 20px; display: block; animation: float 5s ease-in-out infinite; }
+    .notfound::after {
+      bottom: -80px;
+      right: -80px;
+      width: 400px;
+      height: 400px;
+      animation: floatShape 25s infinite alternate-reverse;
+    }
+    @keyframes floatShape {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+      100% { transform: translate(40px, 40px) scale(1.2); opacity: 0.6; }
+    }
+    /* main content */
+    .notfound__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 48px;
+      padding: 48px 40px;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+    .notfound__icon {
+      font-size: 5rem;
+      display: inline-block;
+      margin-bottom: 24px;
+      animation: floatEmoji 3s ease-in-out infinite;
+    }
+    @keyframes floatEmoji {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(5deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
     .notfound__title {
-      font-family: var(--font-display);
+      font-family: var(--font-display, Georgia, 'Times New Roman', serif);
       font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 600; color: var(--burgundy); margin-bottom: 16px;
+      font-weight: 700;
+      color: var(--burgundy);
+      margin-bottom: 18px;
+      letter-spacing: -0.02em;
     }
-    .notfound__title em { font-style: italic; color: var(--gold); }
-    .notfound__desc  { color: var(--charcoal-lt); line-height: 1.8; margin-bottom: 36px; }
-    .notfound__links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .notfound__title em {
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .notfound__desc {
+      color: var(--charcoal-lt);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .helpful-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 32px 0 24px;
+      border-top: 1px dashed rgba(201,168,76,0.4);
+      padding-top: 28px;
+    }
+    .helpful-links a {
+      background: rgba(201,168,76,0.12);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--burgundy);
+      transition: all 0.2s;
+    }
+    .helpful-links a:hover {
+      background: var(--gold);
+      color: white;
+      transform: translateY(-2px);
+    }
+    .contact-card {
+      background: white;
+      border-radius: 28px;
+      padding: 18px 20px;
+      margin: 20px 0 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      border: 1px solid rgba(107,15,43,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .contact-card a {
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--burgundy);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .contact-card a:hover {
+      color: var(--gold);
+    }
+    .notfound__links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    @media (max-width: 550px) {
+      .notfound__inner {
+        padding: 32px 24px;
+      }
+      .helpful-links {
+        gap: 10px;
+      }
+    }
   </style>
 </head>
 <body>
   <section class="notfound" aria-labelledby="notfound-title">
     <div class="notfound__inner">
-      <span class="notfound__icon">🎊</span>
+      <span class="notfound__icon" aria-hidden="true">🎭✨</span>
       <h1 class="notfound__title" id="notfound-title">
         Oops! This Page<br/><em>Wasn't Planned</em>
       </h1>
       <p class="notfound__desc">
-        Looks like this page has gone off-venue! Don't worry — 
-        Ayojan House always has a backup plan. Let us take you somewhere beautiful.
+        Looks like this page has gone off-venue! Every great event has a backup plan –<br/>
+        and so do we. Let’s get you back to the celebration.
       </p>
+
+      <!-- helpful quick links (services visitors might be looking for) -->
+      <div class="helpful-links">
+        <a href="services.html#weddings">💍 Weddings</a>
+        <a href="services.html#corporate">🏢 Corporate Events</a>
+        <a href="services/birthday-party.html">🎂 Birthday Parties</a>
+        <a href="services/baby-shower.html">👶 Baby Showers</a>
+        <a href="gallery.html">📸 Gallery</a>
+        <a href="blog.html">📝 Blog</a>
+      </div>
+
+      <!-- direct contact option -->
+      <div class="contact-card">
+        <span>📞 Need immediate help?</span>
+        <a href="tel:+918210856330">+91 82108 56330</a>
+        <span>or</span>
+        <a href="https://wa.me/918210856330" target="_blank">WhatsApp Us</a>
+      </div>
+
       <div class="notfound__links">
-        <a href="index.html"    class="btn btn-primary">Go Home →</a>
-        <a href="contact.html"  class="btn btn-outline">Book an Event</a>
+        <a href="index.html" class="btn btn-primary">🏠 Go Home →</a>
+        <a href="contact.html" class="btn btn-outline">🎪 Book Your Event</a>
       </div>
     </div>
   </section>
