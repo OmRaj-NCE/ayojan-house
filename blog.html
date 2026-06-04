@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayojan House Blog | Event Planning Insights, Wedding Ideas & Party Inspiration | Patna, Bihar</title>
+  <meta name="description" content="Explore Ayojan House blog for expert event planning tips, wedding decoration ideas, corporate event strategies, and celebration inspiration. Based in Patna, serving Bihar." />
+  <meta name="keywords" content="event planning blog Patna, wedding ideas Bihar, party decoration tips, corporate event management blog, Ayojan House blog" />
+  <meta name="author" content="Ayojan House" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ayojanhouse.in/blog.html" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ayojan House Blog | Event Planning & Celebration Ideas" />
+  <meta property="og:description" content="Expert tips, wedding inspiration, and event management insights from Patna's most trusted event planners." />
+  <meta property="og:url" content="https://ayojanhouse.in/blog.html" />
+  <meta property="og:image" content="https://ayojanhouse.in/assets/images/og-blog.jpg" />
+  <meta property="og:locale" content="en_IN" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ayojan House Blog | Event Planning & Celebration Ideas" />
+  <meta name="twitter:description" content="Expert tips, wedding inspiration, and event management insights from Patna's most trusted event planners." />
+  
+  <!-- JSON-LD Structured Data for Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Ayojan House Blog",
+    "description": "Expert event planning insights, wedding decoration ideas, corporate event strategies, and celebration inspiration.",
+    "url": "https://ayojanhouse.in/blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ayojan House",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ayojanhouse.in/assets/images/logo.png"
+      }
+    }
+  }
+  </script>
+  
+  <link rel="stylesheet" href="styles/global.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%236B0F2B'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-size='18' fill='%23C9A84C' font-family='Georgia'%3EA%3C/text%3E%3C/svg%3E" />
+  
+  <style>
+    /* Blog Page Specific Styles – complements global.css */
+    :root {
+      --blog-card-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      --blog-card-hover: 0 20px 35px rgba(0,0,0,0.08);
+    }
+    *{
+        cursor: pointer;
+    }
+    .blog-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      padding: clamp(60px, 10vw, 100px) 24px;
+      text-align: center;
+      color: white;
+    }
+    .blog-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 16px;
+    }
+    .blog-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    .blog-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 50px;
+    }
+    @media (max-width: 992px) {
+      .blog-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    /* Posts Grid */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    .post-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--blog-card-shadow);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .post-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--blog-card-hover);
+    }
+    .post-img {
+      width: 100%;
+      aspect-ratio: 1.2 / 1;
+      object-fit: cover;
+      background: #f1f5f9;
+    }
+    .post-content {
+      padding: 20px;
+    }
+    .post-category {
+      display: inline-block;
+      background: rgba(201,168,76,0.15);
+      color: #C9A84C;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .post-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .post-excerpt {
+      color: #4b5563;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .post-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.75rem;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+    }
+    /* Sidebar */
+    .sidebar {
+      background: #f9fafb;
+      border-radius: 24px;
+      padding: 28px;
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+    .sidebar-widget {
+      margin-bottom: 35px;
+    }
+    .sidebar-widget h3 {
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+      position: relative;
+      padding-bottom: 8px;
+    }
+    .sidebar-widget h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: #C9A84C;
+      border-radius: 3px;
+    }
+    .search-box {
+      display: flex;
+      background: white;
+      border-radius: 60px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+    .search-box input {
+      flex: 1;
+      border: none;
+      padding: 12px 18px;
+      outline: none;
+      font-size: 0.85rem;
+    }
+    .search-box button {
+      background: #C9A84C;
+      border: none;
+      padding: 0 20px;
+      cursor: pointer;
+      color: #1f2937;
+      font-weight: 600;
+    }
+    .category-list {
+      list-style: none;
+      padding: 0;
+    }
+    .category-list li {
+      margin-bottom: 12px;
+    }
+    .category-list a {
+      text-decoration: none;
+      color: #1f2937;
+      display: flex;
+      justify-content: space-between;
+      transition: color 0.2s;
+    }
+    .category-list a:hover {
+      color: #C9A84C;
+    }
+    .trending-post {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    .trending-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: #e2e8f0;
+    }
+    .trending-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.3;
+      text-decoration: none;
+      color: #1f2937;
+    }
+    .trending-title:hover {
+      color: #C9A84C;
+    }
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 50px;
+    }
+    .page-btn {
+      padding: 8px 16px;
+      border-radius: 40px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      color: #1f2937;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .page-btn.active, .page-btn:hover {
+      background: #C9A84C;
+      border-color: #C9A84C;
+      color: white;
+    }
+    @media (max-width: 640px) {
+      .posts-grid {
+        grid-template-columns: 1fr;
+      }
+      .blog-container {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER (same as other pages) -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav__logo" aria-label="Ayojan House Home">
+        <div class="nav__logo-emblem" aria-hidden="true"></div>
+        <div class="nav__logo-text">
+          <span class="nav__logo-name">Ayojan House</span>
+          <span class="nav__logo-tagline">Event Planners · Patna</span>
+        </div>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="index.html#about" class="nav__link">About</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="gallery.html" class="nav__link">Gallery</a></li>
+        <li><a href="blog.html" class="nav__link active">Blog</a></li>
+        <li><a href="index.html#faq" class="nav__link">FAQ</a></li>
+        <li><a href="contact.html" class="nav__link nav__cta">Book Now</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav__mobile" role="dialog" aria-modal="true">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-primary">Book Your Event</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- BLOG HERO -->
+    <section class="blog-header">
+      <div class="container">
+        <div class="hero-badge">✦ Our Journal</div>
+        <h1>Ayojan House Blog</h1>
+        <p>Expert insights, wedding inspiration, corporate event strategies, and celebration ideas from Patna's most trusted event planners.</p>
+      </div>
+    </section>
+
+    <!-- BLOG CONTAINER (Posts + Sidebar) -->
+    <div class="blog-container">
+      <!-- MAIN CONTENT: POSTS GRID -->
+      <div>
+        <div class="posts-grid" id="postsGrid">
+          <!-- Post 1 -->
+          <a href="#" class="post-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%236B0F2B'/%3E%3Ctext x='50%25' y='50%25' fill='%23C9A84C' font-size='40' text-anchor='middle' dominant-baseline='middle'%3EWedding Decor%3C/text%3E%3C/svg%3E" alt="Wedding Decoration Ideas" class="post-img">
+            <div class="post-content">
+              <span class="post-category">Wedding Planning</span>
+              <h2 class="post-title">10 Breathtaking Wedding Decoration Ideas for a Royal Affair</h2>
+              <p class="post-excerpt">From floral mandaps to dramatic lighting – discover how to transform your wedding venue into a royal masterpiece.</p>
+              <div class="post-meta"><span>📅 15 May 2025</span><span>⏱ 5 min read</span></div>
+            </div>
+          </a>
+          <!-- Post 2 -->
+          <a href="#" class="post-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231e3a5f'/%3E%3Ctext x='50%25' y='50%25' fill='%23C9A84C' font-size='40' text-anchor='middle' dominant-baseline='middle'%3ECorporate%3C/text%3E%3C/svg%3E" alt="Corporate Event" class="post-img">
+            <div class="post-content">
+              <span class="post-category">Corporate Events</span>
+              <h2 class="post-title">How to Plan an Unforgettable Corporate Award Night in Patna</h2>
+              <p class="post-excerpt">Step-by-step guide to hosting a glamorous award ceremony that leaves a lasting impression on employees and stakeholders.</p>
+              <div class="post-meta"><span>📅 2 May 2025</span><span>⏱ 7 min read</span></div>
+            </div>
+          </a>
+          <!-- Post 3 -->
+          <a href="#" class="post-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23C9A84C'/%3E%3Ctext x='50%25' y='50%25' fill='%236B0F2B' font-size='40' text-anchor='middle' dominant-baseline='middle'%3EBirthday%3C/text%3E%3C/svg%3E" alt="Birthday Party" class="post-img">
+            <div class="post-content">
+              <span class="post-category">Birthday Parties</span>
+              <h2 class="post-title">20 Magical Theme Ideas for Kids' Birthday Parties That Wow</h2>
+              <p class="post-excerpt">From superhero themes to princess castles – creative ideas that make every child's birthday unforgettable.</p>
+              <div class="post-meta"><span>📅 20 April 2025</span><span>⏱ 6 min read</span></div>
+            </div>
+          </a>
+          <!-- Post 4 -->
+          <a href="#" class="post-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238a4428'/%3E%3Ctext x='50%25' y='50%25' fill='%23C9A84C' font-size='40' text-anchor='middle' dominant-baseline='middle'%3EDecor%3C/text%3E%3C/svg%3E" alt="Home Decor" class="post-img">
+            <div class="post-content">
+              <span class="post-category">Decor & Styling</span>
+              <h2 class="post-title">Budget-Friendly Home Decor Tips for Intimate Celebrations</h2>
+              <p class="post-excerpt">Turn your home into a stunning party venue with smart decor tricks that don't break the bank.</p>
+              <div class="post-meta"><span>📅 10 April 2025</span><span>⏱ 4 min read</span></div>
+            </div>
+          </a>
+          <!-- Post 5 -->
+          <a href="#" class="post-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23333'/%3E%3Ctext x='50%25' y='50%25' fill='%23C9A84C' font-size='40' text-anchor='middle' dominant-baseline='middle'%3ECouple%3C/text%3E%3C/svg%3E" alt="Pre Wedding Shoot" class="post-img">
+            <div class="post-content">
+              <span class="post-category">Photography</span>
+              <h2 class="post-title">Pre-Wedding Shoot Guide: Locations, Poses & Outfit Ideas</h2>
+              <p class="post-excerpt">Best scenic spots in Patna and Bihar for cinematic pre-wedding photos that tell your love story.</p>
+              <div class="post-meta"><span>📅 28 March 2025</span><span>⏱ 8 min read</span></div>
+            </div>
+          </a>
+          <!-- Post 6 -->
+          <a href="#" class="post-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%234a2e1e'/%3E%3Ctext x='50%25' y='50%25' fill='%23C9A84C' font-size='40' text-anchor='middle' dominant-baseline='middle'%3ECatering%3C/text%3E%3C/svg%3E" alt="Catering" class="post-img">
+            <div class="post-content">
+              <span class="post-category">Catering</span>
+              <h2 class="post-title">Traditional Bihari Cuisine: Must-Have Dishes for Weddings & Events</h2>
+              <p class="post-excerpt">From litti-chokha to thekua – authentic Bihari flavours that guests will love.</p>
+              <div class="post-meta"><span>📅 15 March 2025</span><span>⏱ 5 min read</span></div>
+            </div>
+          </a>
+        </div>
+        <!-- Pagination -->
+        <div class="pagination">
+          <a href="#" class="page-btn active">1</a>
+          <a href="#" class="page-btn">2</a>
+          <a href="#" class="page-btn">3</a>
+          <a href="#" class="page-btn">Next →</a>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <h3>🔍 Search</h3>
+          <div class="search-box">
+            <input type="text" placeholder="Search articles...">
+            <button>Go</button>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>📂 Categories</h3>
+          <ul class="category-list">
+            <li><a href="#">Wedding Planning <span>(12)</span></a></li>
+            <li><a href="#">Corporate Events <span>(8)</span></a></li>
+            <li><a href="#">Birthday Parties <span>(6)</span></a></li>
+            <li><a href="#">Decor & Styling <span>(10)</span></a></li>
+            <li><a href="#">Photography Tips <span>(5)</span></a></li>
+            <li><a href="#">Catering Ideas <span>(7)</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>🔥 Trending Posts</h3>
+          <div class="trending-post">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23C9A84C'/%3E%3Ctext x='50%25' y='50%25' fill='white' font-size='40' text-anchor='middle' dominant-baseline='middle'%3E💍%3C/text%3E%3C/svg%3E" class="trending-img">
+            <a href="#" class="trending-title">Ultimate Wedding Checklist: 12 Months to D-Day</a>
+          </div>
+          <div class="trending-post">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%236B0F2B'/%3E%3Ctext x='50%25' y='50%25' fill='white' font-size='40' text-anchor='middle' dominant-baseline='middle'%3E🎤%3C/text%3E%3C/svg%3E" class="trending-img">
+            <a href="#" class="trending-title">Top 5 Mistakes to Avoid in Corporate Event Planning</a>
+          </div>
+          <div class="trending-post">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23C9A84C'/%3E%3Ctext x='50%25' y='50%25' fill='white' font-size='40' text-anchor='middle' dominant-baseline='middle'%3E🎂%3C/text%3E%3C/svg%3E" class="trending-img">
+            <a href="#" class="trending-title">10 Unique Cake Designs That Steal the Show</a>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>📩 Newsletter</h3>
+          <p style="font-size:0.85rem; margin-bottom:12px;">Get expert tips & inspiration directly to your inbox.</p>
+          <div class="search-box">
+            <input type="email" placeholder="Your email">
+            <button>Subscribe</button>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3>🏷️ Tags</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="background:#e5e7eb; padding:4px 12px; border-radius:30px; font-size:0.7rem;">#WeddingIdeas</span>
+            <span style="background:#e5e7eb; padding:4px 12px; border-radius:30px; font-size:0.7rem;">#CorporateEvents</span>
+            <span style="background:#e5e7eb; padding:4px 12px; border-radius:30px; font-size:0.7rem;">#BirthdayParty</span>
+            <span style="background:#e5e7eb; padding:4px 12px; border-radius:30px; font-size:0.7rem;">#PatnaPlanners</span>
+            <span style="background:#e5e7eb; padding:4px 12px; border-radius:30px; font-size:0.7rem;">#BihariWedding</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- CTA SECTION -->
+    <div class="container" style="margin-bottom: 80px;">
+      <div class="gallery-cta" style="background: linear-gradient(135deg, #6B0F2B 0%, #8a1a3a 100%); border-radius: 32px; padding: 60px 40px; text-align: center; color: white;">
+        <h2 style="font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 16px;">Plan Your Dream Event With Us</h2>
+        <p style="margin-bottom: 24px;">From weddings to corporate galas – let's create something extraordinary together.</p>
+        <a href="contact.html" class="btn btn-gold" style="background: #C9A84C; color: #1f2937;">Get Free Consultation ✦</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER (matching site) -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-name">Ayojan House</div>
+        <p class="footer__brand-desc">Bihar's premier event planning company, crafting extraordinary celebrations since 2012. Based in Danapur, Patna — trusted across the state for weddings, corporate events and every joyful occasion in between.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Facebook">f</a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">in</a>
+          <a href="#" class="footer__social-link" aria-label="YouTube">▶</a>
+          <a href="#" class="footer__social-link" aria-label="WhatsApp">✉</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Quick Links</div>
+        <ul class="footer__col-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Our Services</div>
+        <ul class="footer__col-links">
+          <li><a href="services.html#weddings">Wedding Planning</a></li>
+          <li><a href="services.html#corporate">Corporate Events</a></li>
+          <li><a href="services/birthday-party.html">Birthday Parties</a></li>
+          <li><a href="services/baby-shower.html">Baby Shower</a></li>
+          <li><a href="services/catering.html">Catering & Décor</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Get In Touch</div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📍</span><span>Mithila Colony, Danapur, Patna, Bihar 800012</span></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📞</span><a href="tel:+918210856330">+91 82108 56330</a></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">✉</span><a href="mailto:hello@ayojanhouse.in">hello@ayojanhouse.in</a></div>
+        <div style="margin-top:20px;"><a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.75rem;">Book Now ✦</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2024 Ayojan House. All rights reserved.</span>
+      <span class="footer__bottom-love">Made with ♥ in Patna, Bihar</span>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    // Simple mobile menu toggle (if not already handled by global.js)
+    const hamburger = document.querySelector('.nav__hamburger');
+    const mobileNav = document.querySelector('.nav__mobile');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true' ? false : true;
+        hamburger.setAttribute('aria-expanded', expanded);
+        mobileNav.classList.toggle('open');
+      });
+    }
+  </script>
+</body>
+</html>
