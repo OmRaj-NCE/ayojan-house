@@ -1121,5 +1121,258 @@
     <span class="tooltip">Instagram</span>
   </a>
 </div>
+<!-- Popup Enquiry Form (appears on load, sends to WhatsApp) -->
+<style>
+  /* Modal overlay */
+  .popup-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+  }
+  .popup-modal.open {
+    visibility: visible;
+    opacity: 1;
+  }
+  /* Modal card */
+  .popup-card {
+    background: #fff;
+    max-width: 480px;
+    width: 90%;
+    border-radius: 32px;
+    position: relative;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    background: linear-gradient(145deg, #ffffff 0%, #fef9f0 100%);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
+  .popup-modal.open .popup-card {
+    transform: scale(1);
+  }
+  /* Close button */
+  .popup-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: 300;
+    cursor: pointer;
+    color: #6B0F2B;
+    background: #fff;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .popup-close:hover {
+    background: #6B0F2B;
+    color: white;
+    transform: rotate(90deg);
+  }
+  /* Card inner */
+  .popup-card-inner {
+    padding: 40px 32px 40px;
+  }
+  .popup-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .popup-header h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #6B0F2B;
+    margin-bottom: 8px;
+  }
+  .popup-header p {
+    font-size: 0.85rem;
+    color: #4b5563;
+  }
+  .popup-header .gold-accent {
+    width: 60px;
+    height: 3px;
+    background: #C9A84C;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+  /* Form styles */
+  .popup-form .input-group {
+    margin-bottom: 18px;
+  }
+  .popup-form input,
+  .popup-form select,
+  .popup-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    background: white;
+    outline: none;
+    font-family: inherit;
+  }
+  .popup-form textarea {
+    border-radius: 24px;
+    resize: vertical;
+    min-height: 80px;
+  }
+  .popup-form input:focus,
+  .popup-form select:focus,
+  .popup-form textarea:focus {
+    border-color: #C9A84C;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+  }
+  .popup-form button {
+    width: 100%;
+    background: linear-gradient(135deg, #6B0F2B 0%, #8a1a3a 100%);
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 8px;
+  }
+  .popup-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(107,15,43,0.3);
+  }
+  .popup-note {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 16px;
+    color: #6b7280;
+  }
+  @media (max-width: 550px) {
+    .popup-card-inner {
+      padding: 30px 20px;
+    }
+    .popup-header h3 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<div id="enquiryPopup" class="popup-modal">
+  <div class="popup-card">
+    <div class="popup-close" id="closePopupBtn">✕</div>
+    <div class="popup-card-inner">
+      <div class="popup-header">
+        <h3>✨ Plan Your Dream Event</h3>
+        <p>Get a free, no‑obligation quote within 2 hours</p>
+        <div class="gold-accent"></div>
+      </div>
+      <form id="whatsappEnquiryForm" class="popup-form">
+        <div class="input-group">
+          <input type="text" id="popupName" placeholder="Your Full Name *" required>
+        </div>
+        <div class="input-group">
+          <input type="tel" id="popupPhone" placeholder="Mobile Number *" required>
+        </div>
+        <div class="input-group">
+          <input type="email" id="popupEmail" placeholder="Email Address">
+        </div>
+        <div class="input-group">
+          <select id="popupEventType">
+            <option value="" disabled selected>Select Event Type</option>
+            <option>Wedding</option>
+            <option>Birthday Party</option>
+            <option>Corporate Event</option>
+            <option>Baby Shower</option>
+            <option>Pre-Wedding Function</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <textarea id="popupMessage" placeholder="Tell us about your event (expected date, guest count, etc.)"></textarea>
+        </div>
+        <button type="submit">📲 Send Enquiry on WhatsApp</button>
+        <p class="popup-note">🔒 Your details are safe. We’ll reply within 2 hours.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const modal = document.getElementById('enquiryPopup');
+    const closeBtn = document.getElementById('closePopupBtn');
+    const form = document.getElementById('whatsappEnquiryForm');
+
+    // Show popup after 1 second of page load (can be set to 0 for immediate)
+    setTimeout(() => {
+      // Check if popup has been closed before (session storage)
+      if (!sessionStorage.getItem('popupClosed')) {
+        modal.classList.add('open');
+      }
+    }, 800);
+
+    // Close popup
+    function closePopup() {
+      modal.classList.remove('open');
+      sessionStorage.setItem('popupClosed', 'true');
+    }
+    closeBtn.addEventListener('click', closePopup);
+    // Click outside to close (optional)
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closePopup();
+    });
+
+    // Form submission: send to WhatsApp
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('popupName').value.trim();
+      const phone = document.getElementById('popupPhone').value.trim();
+      const email = document.getElementById('popupEmail').value.trim();
+      const eventType = document.getElementById('popupEventType').value;
+      const message = document.getElementById('popupMessage').value.trim();
+
+      if (!name) {
+        alert('Please enter your name.');
+        return;
+      }
+      if (!phone || !/^\d{10,}$/.test(phone)) {
+        alert('Please enter a valid 10-digit mobile number.');
+        return;
+      }
+
+      // Build WhatsApp message
+      let whatsappText = `*New Enquiry from AyojanHouse.com*%0A%0A`;
+      whatsappText += `*Name:* ${encodeURIComponent(name)}%0A`;
+      whatsappText += `*Phone:* ${encodeURIComponent(phone)}%0A`;
+      if (email) whatsappText += `*Email:* ${encodeURIComponent(email)}%0A`;
+      if (eventType && eventType !== 'Select Event Type') whatsappText += `*Event Type:* ${encodeURIComponent(eventType)}%0A`;
+      if (message) whatsappText += `*Message:* ${encodeURIComponent(message)}%0A`;
+      whatsappText += `%0A_Sent from website popup form_`;
+
+      const whatsappNumber = '918210856330'; // without '+'
+      const url = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+      window.open(url, '_blank');
+
+      // Close popup after sending
+      closePopup();
+      // Optional: reset form
+      form.reset();
+    });
+  })();
+</script>
 </body>
 </html>
