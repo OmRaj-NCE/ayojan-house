@@ -15,13 +15,30 @@
   <link rel="stylesheet" href="styles/animations.css" />
   <link rel="stylesheet" href="styles/contact.css" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%236B0F2B'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-size='18' fill='%23C9A84C' font-family='Georgia'%3EA%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* Additional style for the data preview inside success message */
+    .submitted-data {
+      background: #f9fafb;
+      padding: 18px;
+      border-radius: 20px;
+      text-align: left;
+      margin: 20px 0;
+      font-size: 0.85rem;
+      font-family: monospace;
+      white-space: pre-line;
+      border-left: 4px solid #C9A84C;
+    }
+    .submitted-data strong {
+      color: #6B0F2B;
+    }
+  </style>
 </head>
 <body>
 
   <div class="cursor-dot"  aria-hidden="true"></div>
   <div class="cursor-ring" aria-hidden="true"></div>
 
-  <!-- NAV -->
+  <!-- NAV (unchanged) -->
   <header>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <a href="index.html" class="nav__logo" aria-label="Ayojan House Home">
@@ -36,7 +53,7 @@
         <li><a href="index.html#about" class="nav__link">About</a></li>
         <li><a href="services.html"    class="nav__link">Services</a></li>
         <li><a href="gallery.html"     class="nav__link">Gallery</a></li>
-        <li><a href="blog.html"          class="nav__link">BLOG</a></li>
+        <li><a href="blog.html"        class="nav__link">BLOG</a></li>
         <li><a href="contact.html"     class="nav__link nav__cta active">Book Now</a></li>
       </ul>
       <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -48,7 +65,7 @@
       <a href="index.html#about" class="nav__link">About</a>
       <a href="services.html"    class="nav__link">Services</a>
       <a href="gallery.html"     class="nav__link">Gallery</a>
-      <a href="blog.html"          class="nav__link">BLOG</a>
+      <a href="blog.html"        class="nav__link">BLOG</a>
       <a href="contact.html"     class="nav__link">Contact</a>
       <a href="contact.html"     class="btn btn-primary">Book Your Event</a>
     </div>
@@ -56,7 +73,7 @@
 
   <main>
 
-    <!-- PAGE HERO — dark burgundy -->
+    <!-- PAGE HERO (unchanged) -->
     <section class="page-hero" aria-labelledby="contact-hero-title">
       <div class="page-hero__bg-ornament" aria-hidden="true"></div>
       <div class="page-hero__shape page-hero__shape--1" aria-hidden="true"></div>
@@ -80,7 +97,7 @@
       </div>
     </section>
 
-    <!-- QUICK CONTACT RIBBON -->
+    <!-- QUICK CONTACT RIBBON (unchanged) -->
     <div class="contact-ribbon" role="complementary" aria-label="Quick contact options">
       <div class="contact-ribbon__inner">
         <a href="tel:+918210856330" class="ribbon-item" aria-label="Call us">
@@ -111,7 +128,7 @@
     <section class="contact-main" aria-labelledby="contact-form-title">
       <div class="contact-main__inner">
 
-        <!-- LEFT: Info -->
+        <!-- LEFT: Info (unchanged) -->
         <div class="contact-info reveal-left">
           <div class="section-label">Reach Out</div>
           <h2 class="contact-info__heading" id="contact-info-title">
@@ -123,7 +140,6 @@
             No pressure, no commitment — just a warm conversation about your dream event.
           </p>
 
-          <!-- Info Cards -->
           <div class="contact-cards">
             <a href="tel:+918210856330" class="contact-card" aria-label="Call Ayojan House">
               <div class="contact-card__icon-wrap">📞</div>
@@ -151,7 +167,6 @@
             </div>
           </div>
 
-          <!-- WhatsApp Button -->
           <a href="https://wa.me/918210856330?text=Hello%20Ayojan%20House!%20I%20would%20like%20to%20discuss%20an%20event%20with%20you."
              target="_blank" rel="noopener"
              class="whatsapp-btn"
@@ -160,7 +175,6 @@
             Chat With Us on WhatsApp
           </a>
 
-          <!-- Office Hours -->
           <div class="hours-card">
             <div class="hours-card__title">Office Hours</div>
             <div class="hours-row">
@@ -177,7 +191,6 @@
             </div>
           </div>
 
-          <!-- Inline Map -->
           <div class="contact-map">
             <iframe
               title="Ayojan House Office Location"
@@ -189,21 +202,22 @@
           </div>
         </div>
 
-        <!-- RIGHT: Form -->
+        <!-- RIGHT: Form (modified for email optional + formatted data display) -->
         <div class="contact-form-wrap reveal-right" role="main">
 
-          <!-- Success State (hidden initially) -->
-          <div class="form-success" aria-live="polite" role="status">
+          <!-- Success State (will show formatted data) -->
+          <div class="form-success" aria-live="polite" role="status" style="display: none;">
             <div class="form-success__icon">✦</div>
             <div class="form-success__title">Thank You!</div>
             <p class="form-success__msg">
               Your enquiry has been received. Our team will reach out to you within 
-              <strong>2–4 hours</strong> to discuss your event. We can't wait to start planning!
+              <strong>2–4 hours</strong> to discuss your event.
             </p>
+            <div id="submitted-data-container" class="submitted-data"></div>
             <a href="index.html" class="btn btn-primary" style="margin-top:8px;">Back to Home →</a>
           </div>
 
-          <!-- The Form -->
+          <!-- The Form (email no longer required) -->
           <form id="contact-form" novalidate aria-labelledby="contact-form-title">
             <div class="form-header">
               <div class="form-header__tag">Free Consultation</div>
@@ -244,13 +258,13 @@
               </div>
             </div>
 
-            <!-- Email -->
+            <!-- Email (optional) -->
             <div class="field-group">
               <div class="field-wrap">
                 <input type="email" id="email" name="email"
-                  placeholder=" " required autocomplete="email"
-                  aria-label="Your email address" />
-                <label class="field-label" for="email">Email Address *</label>
+                  placeholder=" " autocomplete="email"
+                  aria-label="Your email address (optional)" />
+                <label class="field-label" for="email">Email Address (Optional)</label>
                 <div class="field-error" role="alert"></div>
               </div>
             </div>
@@ -360,7 +374,7 @@
       </div>
     </section>
 
-    <!-- FULL MAP -->
+    <!-- FULL MAP SECTION (unchanged) -->
     <section class="contact-map-section" aria-labelledby="map-title">
       <div class="contact-map-section__inner">
         <div class="section-header reveal">
@@ -389,7 +403,7 @@
       </div>
     </section>
 
-    <!-- TRUST BADGES -->
+    <!-- TRUST BADGES (unchanged) -->
     <section class="trust-section" aria-label="Why trust Ayojan House">
       <div class="trust-section__inner">
         <div class="reveal">
@@ -415,7 +429,7 @@
       </div>
     </section>
 
-    <!-- CTA BAND -->
+    <!-- CTA BAND (unchanged) -->
     <section class="cta-band" aria-labelledby="contact-cta-title">
       <div class="cta-band__bg" aria-hidden="true"></div>
       <div class="cta-band__inner reveal">
@@ -438,7 +452,7 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (unchanged) -->
   <footer class="footer" role="contentinfo">
     <div class="footer__grid">
       <div>
@@ -487,7 +501,671 @@
     </div>
   </footer>
 
+  <!-- custom script that overrides the previous contact.js behaviour -->
+  <script>
+    (function() {
+      // Wait for DOM to be ready
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contact-form');
+        const successDiv = document.querySelector('.form-success');
+        const submitBtn = form.querySelector('.submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoader = submitBtn.querySelector('.btn-loader');
+
+        // Helper: convert guest count value to readable text
+        function getGuestCountText(value) {
+          const map = {
+            'under-50': 'Under 50 guests',
+            '50-100': '50 – 100 guests',
+            '100-200': '100 – 200 guests',
+            '200-500': '200 – 500 guests',
+            '500-1000': '500 – 1000 guests',
+            '1000+': '1000+ guests'
+          };
+          return map[value] || value || 'Not specified';
+        }
+
+        // Helper: get budget text from slider
+        function getBudgetText() {
+          const slider = document.getElementById('budget-slider');
+          const budgets = ['< ₹25K', '₹25K – ₹50K', '₹50K – ₹75K', '₹75K – ₹1.5L', '₹1.5L – ₹3L', '₹3L – ₹5L', '₹5L – ₹10L', '₹10L+'];
+          const idx = parseInt(slider.value, 10);
+          return budgets[idx] || '₹1 Lakh';
+        }
+
+        // Format the submitted data into a nice preview
+        function formatSubmittedData(formData) {
+          const name = formData.get('full_name') || 'Not provided';
+          const phone = formData.get('phone') || 'Not provided';
+          const email = formData.get('email') || 'Not provided';
+          const eventDate = formData.get('event_date') || 'Not specified';
+          const guestCountRaw = formData.get('guest_count');
+          const guestCount = guestCountRaw ? getGuestCountText(guestCountRaw) : 'Not specified';
+          const city = formData.get('venue_city') || 'Not specified';
+          const budget = getBudgetText();
+          const eventType = formData.get('event_type') || 'Not selected';
+          const message = formData.get('message') || 'Not provided';
+          const referral = formData.get('referral') || 'Not specified';
+
+          return `
+            <strong>📋 Your enquiry details:</strong><br><br>
+            <strong>👤 Name:</strong> ${escapeHtml(name)}<br>
+            <strong>📞 Mobile:</strong> ${escapeHtml(phone)}<br>
+            <strong>✉️ Email:</strong> ${escapeHtml(email)}<br>
+            <strong>📅 Event Date:</strong> ${escapeHtml(eventDate)}<br>
+            <strong>👥 Guest Count:</strong> ${escapeHtml(guestCount)}<br>
+            <strong>📍 Event City:</strong> ${escapeHtml(city)}<br>
+            <strong>💰 Budget Range:</strong> ${escapeHtml(budget)}<br>
+            <strong>🎭 Event Type:</strong> ${escapeHtml(eventType)}<br>
+            <strong>💬 Your Message:</strong><br>${escapeHtml(message)}<br>
+            <strong>🔍 How did you hear:</strong> ${escapeHtml(referral)}
+          `;
+        }
+
+        function escapeHtml(str) {
+          if (!str) return '';
+          return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+          }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+          });
+        }
+
+        // Override the existing form submission (prevent default and show preview)
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+
+          // Basic validation: required fields (name, phone, message)
+          const name = document.getElementById('full-name').value.trim();
+          const phone = document.getElementById('phone').value.trim();
+          const message = document.getElementById('message').value.trim();
+
+          if (!name) {
+            alert('Please enter your full name.');
+            return;
+          }
+          if (!phone || !/^\d{10,}$/.test(phone)) {
+            alert('Please enter a valid 10-digit mobile number.');
+            return;
+          }
+          if (!message) {
+            alert('Please tell us a little about your event.');
+            return;
+          }
+
+          // Collect all form data
+          const formData = new FormData(form);
+          // Also include event type from hidden input (already in formData)
+          // Budget: manually add budget_range (already set by slider script in original contact.js, but we'll ensure it's included)
+          const budgetInput = document.getElementById('budget-val');
+          if (budgetInput && budgetInput.value) {
+            formData.set('budget_range', budgetInput.value);
+          }
+
+          // Simulate sending (you could replace with actual fetch)
+          // Show loader
+          btnText.style.display = 'none';
+          btnLoader.style.display = 'inline-block';
+          submitBtn.disabled = true;
+
+          // Simulate network delay (1.5 sec)
+          await new Promise(resolve => setTimeout(resolve, 1500));
+
+          // Hide loader
+          btnText.style.display = 'inline-block';
+          btnLoader.style.display = 'none';
+          submitBtn.disabled = false;
+
+          // Display formatted data in success message
+          const container = document.getElementById('submitted-data-container');
+          container.innerHTML = formatSubmittedData(formData);
+
+          // Hide form, show success
+          form.style.display = 'none';
+          successDiv.style.display = 'block';
+          // Scroll to success message
+          successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        // Optional: keep the budget slider display from original script (but we'll add a basic one here)
+        const budgetSlider = document.getElementById('budget-slider');
+        const budgetDisplay = document.getElementById('budget-display');
+        const budgetHidden = document.getElementById('budget-val');
+        const budgets = ['< ₹25K', '₹25K – ₹50K', '₹50K – ₹75K', '₹75K – ₹1.5L', '₹1.5L – ₹3L', '₹3L – ₹5L', '₹5L – ₹10L', '₹10L+'];
+        const budgetValues = ['under-25K', '25-50K', '50-75K', '1-1.5L', '1.5-3L', '3-5L', '5-10L', '10L+'];
+        if (budgetSlider && budgetDisplay && budgetHidden) {
+          budgetSlider.addEventListener('input', function() {
+            const idx = parseInt(this.value, 10);
+            budgetDisplay.innerText = budgets[idx];
+            budgetHidden.value = budgetValues[idx];
+          });
+        }
+
+        // Event type pills
+        const pills = document.querySelectorAll('.event-pill');
+        const eventTypeHidden = document.getElementById('event-type-val');
+        if (pills.length && eventTypeHidden) {
+          pills.forEach(pill => {
+            pill.addEventListener('click', function() {
+              pills.forEach(p => p.classList.remove('selected'));
+              this.classList.add('selected');
+              eventTypeHidden.value = this.getAttribute('data-type');
+            });
+          });
+        }
+
+        // Message character counter
+        const msgTextarea = document.getElementById('message');
+        const msgCountSpan = document.getElementById('msg-count');
+        if (msgTextarea && msgCountSpan) {
+          msgTextarea.addEventListener('input', function() {
+            msgCountSpan.innerText = this.value.length;
+          });
+        }
+      });
+    })();
+  </script>
   <script src="scripts/main.js"></script>
   <script src="scripts/contact.js"></script>
+  <style>
+  .chatbot-widget {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9999;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  }
+  .chatbot-button {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #6B0F2B 0%, #8a1a3a 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    outline: none;
+  }
+  .chatbot-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+  }
+  .chatbot-button svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+  }
+  .chatbot-window {
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 360px;
+    max-width: calc(100vw - 48px);
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform-origin: bottom left;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9);
+    pointer-events: none;
+  }
+  .chatbot-window.open {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+  .chatbot-header {
+    background: linear-gradient(135deg, #6B0F2B 0%, #8a1a3a 100%);
+    color: white;
+    padding: 16px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .chatbot-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .chatbot-close {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .chatbot-close:hover {
+    background: rgba(255,255,255,0.3);
+  }
+  .chatbot-messages {
+    height: 380px;
+    overflow-y: auto;
+    padding: 16px;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .message {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    animation: fadeIn 0.2s ease;
+  }
+  .bot-message {
+    background: white;
+    color: #1f2937;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .user-message {
+    background: #6B0F2B;
+    color: white;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+  }
+  .chatbot-input-area {
+    display: flex;
+    padding: 12px;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    gap: 8px;
+  }
+  .chatbot-input {
+    flex: 1;
+    border: 1px solid #d1d5db;
+    border-radius: 40px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border 0.2s;
+  }
+  .chatbot-input:focus {
+    border-color: #C9A84C;
+  }
+  .chatbot-send {
+    background: #C9A84C;
+    border: none;
+    border-radius: 40px;
+    padding: 0 18px;
+    color: #1f2937;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 0.85rem;
+  }
+  .chatbot-send:hover {
+    background: #b8922a;
+  }
+  .typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 8px 12px;
+    background: white;
+    border-radius: 18px;
+    width: fit-content;
+    align-items: center;
+  }
+  .typing-indicator span {
+    width: 6px;
+    height: 6px;
+    background: #9ca3af;
+    border-radius: 50%;
+    animation: typing 1.4s infinite ease;
+  }
+  .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .whatsapp-note {
+    font-size: 0.7rem;
+    color: #10b981;
+    margin-top: 6px;
+    display: inline-block;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 6px;
+  }
+  @media (max-width: 480px) {
+    .chatbot-window {
+      width: calc(100vw - 40px);
+      bottom: 70px;
+    }
+    .chatbot-button {
+      width: 52px;
+      height: 52px;
+    }
+  }
+</style>
+
+<div class="chatbot-widget">
+  <div class="chatbot-button" id="chatbotToggle" aria-label="Open chat assistant">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14h-4.8L12 19.2 8.8 16H4V4h16v12z"/>
+      <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+    </svg>
+  </div>
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">
+      <h3>✨ Ayojan Assistant</h3>
+      <button class="chatbot-close" id="chatbotClose">×</button>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+      <div class="message bot-message">👋 Namaste! I'm Ayojan's virtual assistant. Ask me anything – weddings, corporate events, birthdays, pricing, or even venue suggestions. Type your question below 😊</div>
+    </div>
+    <div class="chatbot-input-area">
+      <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask me anything..." autocomplete="off">
+      <button class="chatbot-send" id="chatbotSend">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const WHATSAPP = "+91 82108 56330";
+    const WHATSAPP_LINK = `<a href="https://wa.me/918210856330" target="_blank" style="color:#10b981; text-decoration:underline;">Click here to WhatsApp</a>`;
+
+    // Extended knowledge base (more accurate & comprehensive)
+    const knowledge = [
+      // Greetings / small talk
+      { keywords: ["hello", "hi", "hey", "namaste", "good morning", "good afternoon", "good evening"], answer: "Hello! 👋 How can I help you today? I can tell you about weddings, corporate events, birthday parties, pricing, or even share our portfolio. Just ask! 😊" },
+      
+      // Wedding services
+      { keywords: ["wedding", "marriage", "shaadi", "vivah", "bridal", "groom", "saat phere", "reception"], answer: "💍 We offer complete wedding planning: Haldi, Mehndi, Sangeet, Varmala, Grand Entry, Mandap decor, wedding photography, catering, guest management, and more. Our wedding packages start from ₹50,000. We handle both intimate and grand weddings (50 to 2000+ guests). Want a custom quote?" },
+      
+      // Corporate events
+      { keywords: ["corporate", "company", "business", "office", "annual day", "award night", "conference", "seminar", "product launch", "gala"], answer: "🏢 Absolutely! We manage corporate events: annual days, award nights, product launches, conferences, leadership summits, and team-building retreats. Services include stage setup, AV production, branding, catering, and guest coordination. Prices start from ₹80K. Let's discuss your requirements!" },
+      
+      // Birthday / baby shower / family
+      { keywords: ["birthday", "party", "celebration", "milestone", "anniversary", "surprise party", "theme party"], answer: "🎂 Yes! We create unforgettable birthday parties for all ages – kids' themes, milestone birthdays (18th, 21st, 50th, 60th), and surprise parties. Decor, cake, entertainment, catering, photography – everything included. Packages from ₹25K." },
+      { keywords: ["baby shower", "godh bharai", "new baby", "expecting", "baby celebration"], answer: "👶 Congratulations! We organize beautiful baby showers (Godh Bharai) with elegant decor, floral arrangements, games, photography, return gifts, and delicious catering. Custom themes available. Prices start from ₹20K." },
+      
+      // Catering & decor
+      { keywords: ["catering", "food", "menu", "cuisine", "dining", "buffet", "live counter", "chef"], answer: "🍛 We offer multi-cuisine catering: North Indian, South Indian, Chinese, Continental, Mughlai, Italian, and authentic Bihari dishes (litti-chokha, sattu parantha). Live food stations, chaat counters, and dessert bars available. Tasting session included before booking. Pricing starts from ₹350/plate." },
+      { keywords: ["decor", "decoration", "stage", "mandap", "floral", "flower", "lighting", "theme decor"], answer: "🌸 Our decor team specializes in weddings, mandap decoration, stage design, floral installations (fresh & artificial), themed decor (royal, boho, fairy-tale, modern), and corporate branding. We transform any venue – home, lawn, hotel, or farmhouse. Free design consultation!" },
+      
+      // Photography & videography
+      { keywords: ["photography", "photo", "video", "cinematography", "wedding film", "album", "drone", "maternity shoot", "pre wedding"], answer: "📸 Yes! We provide professional photography & videography: wedding photography, pre-wedding shoots, post-wedding shoots, drone coverage, maternity shoots, candid photography, and cinematic wedding films. Albums, highlights, and RAW files included. Packages start from ₹25K." },
+      
+      // Pricing & budget (more detailed)
+      { keywords: ["price", "cost", "budget", "package", "pricing", "charges", "how much", "fee", "expenses"], answer: "💰 Our event packages are fully customizable. Starting ranges: Birthday parties ₹25K+, Baby shower ₹20K+, Wedding planning ₹50K+, Corporate events ₹80K+, Photography ₹25K+, Catering ₹350/plate, Decor ₹15K+. For a precise quote, please share guest count, event type, venue, and services needed – we'll email you a detailed breakdown. Free no-obligation consultation." },
+      
+      // Venue / location support
+      { keywords: ["venue", "location", "place", "hotel", "lawn", "farmhouse", "banquet", "where"], answer: "📍 We work with top venues in Patna and across Bihar – hotels, farmhouses, community halls, lawns, and also provide complete tent & stage setups if you prefer hosting at home. We can suggest venues based on your guest count and budget. Just tell me your preferred area!" },
+      
+      // Booking & process
+      { keywords: ["book", "booking", "hire", "appointment", "consultation", "meeting", "get started", "how to book"], answer: "📅 Booking is easy! Step 1: Free consultation (call +91 82108 56330 or fill contact form). Step 2: We share custom proposal & mood board. Step 3: Confirm with a small advance. Step 4: We plan everything while you relax. Want to book a free consultation now?" },
+      { keywords: ["timeline", "advance", "notice", "how early", "lead time"], answer: "⏰ For weddings: book 3–6 months in advance (especially Nov-Feb). Corporate events: 2–3 months. Birthdays & baby showers: 4–8 weeks. Last-minute events may be possible – call us to check availability!" },
+      
+      // Portfolio / gallery
+      { keywords: ["gallery", "photos", "portfolio", "past work", "examples", "sample", "real events"], answer: "📷 Yes! Visit our Gallery page (gallery.html) to see 50+ real events – weddings, birthdays, corporate galas, decor setups, and photo shoots. We can also share a PDF portfolio on WhatsApp. Would you like me to send it?" },
+      
+      // Contact info
+      { keywords: ["phone", "number", "email", "reach", "call", "whatsapp", "contact"], answer: "📞 You can reach us at +91 82108 56330 (Call / WhatsApp), email hello@ayojanhouse.in, or visit our office at Mithila Colony, Danapur, Patna. Office hours: 9 AM – 9 PM, 7 days a week. We reply within 2 hours." },
+      
+      // Additional services
+      { keywords: ["engagement", "ring ceremony", "sagai"], answer: "💎 Yes! We manage engagement and ring ceremonies with decor, stage setup, photography, catering, and entertainment. A beautiful way to begin your journey. Packages from ₹35K." },
+      { keywords: ["mehendi", "mehndi"], answer: "🎨 We create vibrant mehendi setups with floral swings, low seating, fresh flowers, and entertainment (dhol, dancers). Henna artists can be arranged too. Starting ₹40K." },
+      { keywords: ["sangeet", "dance", "music"], answer: "🎵 Sangeet nights are our specialty! DJ, live dhol, dance floor, stage lighting, choreography support, and entertainment. We make the night unforgettable. Packages from ₹50K." },
+      { keywords: ["grand entry", "entry", "baraat"], answer: "🐎 We plan spectacular grand entries – bridal entry with flower shower, groom's baraat with horses/dancers, or luxury car entry. Cold pyros, LED tunnel, dhol, and effects available. Let's discuss your vision!" },
+      
+      // Placeholder for any other
+    ];
+
+    // Function to match user question to best answer
+    function findBestAnswer(userMsg) {
+      const lowerMsg = userMsg.toLowerCase();
+      let bestMatch = null;
+      let maxScore = 0;
+      
+      for (let item of knowledge) {
+        let score = 0;
+        for (let kw of item.keywords) {
+          if (lowerMsg.includes(kw)) {
+            // Keyword length influences relevance
+            score += kw.length;
+            if (kw.length > 3) score += 2; // longer keywords are more specific
+          }
+        }
+        if (score > maxScore) {
+          maxScore = score;
+          bestMatch = item;
+        }
+      }
+      
+      if (bestMatch && maxScore > 0) {
+        let answer = bestMatch.answer;
+        // If it's a simple greeting, no need to force WhatsApp number? We'll still add it softly.
+        if (!answer.includes("WhatsApp") && !answer.includes("contact us")) {
+          answer += `\n\n📱 For more details or to book a free consultation, reach us on WhatsApp 📞 ${WHATSAPP}. ${WHATSAPP_LINK}`;
+        } else if (!answer.includes(WHATSAPP)) {
+          answer += ` Or you can WhatsApp us at ${WHATSAPP}.`;
+        }
+        return answer;
+      }
+      
+      // Fallback response
+      return `Thank you for your message! 😊 I'm still learning. For a quick and detailed answer, please contact our event expert directly on WhatsApp 📞 ${WHATSAPP} – they'll reply within minutes. ${WHATSAPP_LINK} Meanwhile, you can ask me about weddings, corporate events, birthdays, pricing, or gallery.`;
+    }
+
+    // Append WhatsApp to any response that doesn't already have it
+    function ensureWhatsApp(originalAnswer) {
+      if (originalAnswer.includes("WhatsApp") || originalAnswer.includes(WHATSAPP) || originalAnswer.includes("contact")) {
+        return originalAnswer;
+      }
+      return originalAnswer + `\n\n📱 Need more help? Chat with us on WhatsApp ${WHATSAPP} (${WHATSAPP_LINK}) for instant replies.`;
+    }
+
+    // DOM elements
+    const toggleBtn = document.getElementById('chatbotToggle');
+    const closeBtn = document.getElementById('chatbotClose');
+    const windowDiv = document.getElementById('chatbotWindow');
+    const messagesDiv = document.getElementById('chatbotMessages');
+    const inputField = document.getElementById('chatbotInput');
+    const sendBtn = document.getElementById('chatbotSend');
+
+    function addMessage(text, isUser) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+      // Allow HTML in bot messages (for WhatsApp link)
+      if (!isUser) {
+        msgDiv.innerHTML = text;
+      } else {
+        msgDiv.textContent = text;
+      }
+      messagesDiv.appendChild(msgDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'typing-indicator';
+      typingDiv.id = 'typingIndicator';
+      typingDiv.innerHTML = '<span></span><span></span><span></span>';
+      messagesDiv.appendChild(typingDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+      const indicator = document.getElementById('typingIndicator');
+      if (indicator) indicator.remove();
+    }
+
+    async function sendMessage() {
+      const userText = inputField.value.trim();
+      if (!userText) return;
+      addMessage(userText, true);
+      inputField.value = '';
+      showTypingIndicator();
+      await new Promise(resolve => setTimeout(resolve, 600));
+      const rawAnswer = findBestAnswer(userText);
+      const finalAnswer = ensureWhatsApp(rawAnswer);
+      removeTypingIndicator();
+      addMessage(finalAnswer, false);
+    }
+
+    function handleEnter(e) {
+      if (e.key === 'Enter') sendMessage();
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      windowDiv.classList.toggle('open');
+      if (windowDiv.classList.contains('open')) inputField.focus();
+    });
+    closeBtn.addEventListener('click', () => windowDiv.classList.remove('open'));
+    sendBtn.addEventListener('click', sendMessage);
+    inputField.addEventListener('keypress', handleEnter);
+
+    document.addEventListener('click', (e) => {
+      if (!windowDiv.contains(e.target) && !toggleBtn.contains(e.target) && windowDiv.classList.contains('open')) {
+        windowDiv.classList.remove('open');
+      }
+    });
+  })();
+</script>
+<!-- Floating WhatsApp & Instagram CTA (Bottom Right) -->
+<!-- Floating WhatsApp, Instagram & Call CTA (Bottom Right) -->
+<style>
+  .social-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .social-cta a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease;
+    text-decoration: none;
+    position: relative;
+  }
+  .social-cta a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.2);
+  }
+  .social-cta .whatsapp-icon {
+    background: #25D366;
+  }
+  .social-cta .instagram-icon {
+    background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  }
+  .social-cta .call-icon {
+    background: #C9A84C;
+  }
+  .social-cta svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+  }
+  .social-cta .tooltip {
+    position: absolute;
+    right: 65px;
+    background: #1f2937;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    pointer-events: none;
+    font-family: system-ui, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .social-cta .tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #1f2937;
+  }
+  .social-cta a:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+  @media (max-width: 480px) {
+    .social-cta {
+      bottom: 20px;
+      right: 20px;
+      gap: 10px;
+    }
+    .social-cta a {
+      width: 48px;
+      height: 48px;
+    }
+    .social-cta svg {
+      width: 24px;
+      height: 24px;
+    }
+    .social-cta .tooltip {
+      display: none;
+    }
+  }
+</style>
+
+<div class="social-cta">
+  <!-- Call CTA (Direct Phone Call) -->
+  <a href="tel:+918210856330" target="_blank" rel="noopener noreferrer" class="call-icon" aria-label="Call Ayojan House">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
+    <span class="tooltip">Call Us</span>
+  </a>
+  <!-- WhatsApp -->
+  <a href="https://wa.me/918210856330" target="_blank" rel="noopener noreferrer" class="whatsapp-icon" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.518 1.09 3.584l-1.292 3.87 3.975-1.276c1.027.589 2.176.899 3.368.899h.001c3.18 0 5.766-2.586 5.767-5.766.001-3.18-2.585-5.766-5.766-5.766zm3.016 7.987c-.096.27-.566.528-.775.594-.209.066-.483.097-.689.097-.206 0-.438-.096-.688-.287-.492-.374-1.017-1.072-1.396-1.747-.092-.164-.047-.305.025-.404.074-.104.147-.182.221-.273.074-.091.098-.156.147-.26.049-.104.024-.195-.012-.273-.036-.078-.327-.792-.448-1.084-.119-.286-.241-.247-.329-.252-.083-.004-.179-.005-.275-.005-.096 0-.251.036-.383.18-.132.144-.504.492-.504 1.2 0 .708.515 1.392.587 1.488.072.096.998 1.562 2.431 2.145 1.432.583 1.432.389 1.691.365.259-.024.835-.341.953-.67.118-.329.118-.61.083-.668-.035-.058-.129-.096-.27-.168-.141-.072-.834-.411-.963-.458-.129-.047-.224-.072-.318.072-.094.144-.365.458-.448.552-.083.094-.166.102-.307.03-.141-.072-.595-.219-1.133-.701-.419-.375-.702-.838-.784-.978-.082-.14-.009-.216.062-.286.064-.064.14-.168.21-.253.07-.084.094-.144.141-.24.047-.096.024-.18-.012-.252-.036-.072-.318-.766-.436-1.049-.115-.279-.232-.242-.316-.247-.081-.003-.175-.003-.268-.003-.093 0-.243.035-.371.18-.128.144-.486.475-.486 1.156 0 .681.496 1.339.565 1.432.069.093.998 1.523 2.418 2.068 1.42.545 1.42.364 1.676.339.256-.025.826-.338.942-.662.116-.324.116-.59.081-.646-.035-.056-.129-.096-.27-.168-.14-.072-.834-.411-.963-.458z"/>
+    </svg>
+    <span class="tooltip">WhatsApp</span>
+  </a>
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/ayojanhouse/" target="_blank" rel="noopener noreferrer" class="instagram-icon" aria-label="Follow us on Instagram">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.104.336 2.56.593.516.29.884.638 1.27 1.025.386.386.735.754 1.024 1.27.257.456.531 1.194.593 2.56.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.336 2.104-.593 2.56-.29.516-.638.884-1.025 1.27-.386.386-.754.735-1.27 1.024-.456.257-1.194.531-2.56.593-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.104-.336-2.56-.593-.516-.29-.884-.638-1.27-1.025-.386-.386-.735-.754-1.024-1.27-.257-.456-.531-1.194-.593-2.56-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.336-2.104.593-2.56.29-.516.638-.884 1.025-1.27.386-.386.754-.735 1.27-1.024.456-.257 1.194-.531 2.56-.593 1.266-.058 1.646-.07 4.85-.07zM12 0C8.742 0 8.332.014 7.052.072c-1.453.07-2.429.306-3.284.65-.887.357-1.66.84-2.417 1.598-.757.757-1.241 1.53-1.598 2.417-.344.855-.58 1.831-.65 3.284C.014 8.332 0 8.742 0 12c0 3.258.014 3.668.072 4.948.07 1.453.306 2.429.65 3.284.357.887.84 1.66 1.598 2.417.757.757 1.53 1.241 2.417 1.598.855.344 1.831.58 3.284.65 1.28.058 1.69.072 4.948.072 3.258 0 3.668-.014 4.948-.072 1.453-.07 2.429-.306 3.284-.65.887-.357 1.66-.84 2.417-1.598.757-.757 1.241-1.53 1.598-2.417.344-.855.58-1.831.65-3.284.058-1.28.072-1.69.072-4.948 0-3.258-.014-3.668-.072-4.948-.07-1.453-.306-2.429-.65-3.284-.357-.887-.84-1.66-1.598-2.417-.757-.757-1.53-1.241-2.417-1.598-.855-.344-1.831-.58-3.284-.65C15.668.014 15.258 0 12 0z"/>
+      <path d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162S15.403 5.838 12 5.838zM12 16c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z"/>
+      <circle cx="18.406" cy="5.594" r="1.44"/>
+    </svg>
+    <span class="tooltip">Instagram</span>
+  </a>
+</div>
 </body>
 </html>

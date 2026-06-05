@@ -41,6 +41,36 @@
   <link rel="stylesheet" href="styles/animations.css" />
   <link rel="stylesheet" href="styles/home.css" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%236B0F2B'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-size='18' fill='%23C9A84C' font-family='Georgia'%3EA%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* Responsive fix for map section on mobile */
+    @media (max-width: 768px) {
+      .location-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+    }
+    /* Google review icon/link style */
+    .google-review-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: #4285F4;
+      text-decoration: none;
+      background: #f1f3f4;
+      padding: 4px 12px;
+      border-radius: 30px;
+      transition: background 0.2s;
+    }
+    .google-review-link:hover {
+      background: #e8eaed;
+    }
+    .google-review-link svg {
+      width: 14px;
+      height: 14px;
+    }
+  </style>
 </head>
 <body>
 
@@ -107,11 +137,11 @@
         </div>
         <div class="hero__stats anim-slide-up delay-6">
           <div class="hero__stat">
-            <div class="hero__stat-num" data-count="500" data-suffix="+">0+</div>
+            <div class="hero__stat-num" data-count="300" data-suffix="+">0+</div>
             <div class="hero__stat-label">Events Done</div>
           </div>
           <div class="hero__stat">
-            <div class="hero__stat-num" data-count="12" data-suffix="+">0+</div>
+            <div class="hero__stat-num" data-count="10" data-suffix="+">0+</div>
             <div class="hero__stat-label">Years of Trust</div>
           </div>
           <div class="hero__stat">
@@ -123,16 +153,9 @@
 
       <div class="hero__visual" aria-hidden="true">
         <div class="hero__img-wrap">
-          <!--
-            TO ADD YOUR OWN HERO IMAGE:
-            1. Put your image in the "images" folder (e.g. hero-main.jpg)
-            2. Delete the div.hero__img-placeholder below
-            3. Uncomment this line:
-            -->
-            <img src="./assets/images/hero-main.png" width="800" height="900" fetchpriority="high"
-     alt="Grand wedding event by Ayojan House"
-     class="hero__img-main">
-          
+          <img src="./assets/images/hero-main.png" width="800" height="900" fetchpriority="high"
+               alt="Grand wedding event by Ayojan House"
+               class="hero__img-main">
           <div class="hero__ring hero__ring--1"></div>
           <div class="hero__ring hero__ring--2"></div>
           <div class="hero__float-card hero__float-card--1">
@@ -145,7 +168,7 @@
           <div class="hero__float-card hero__float-card--2">
             <div class="hero__float-icon">⭐</div>
             <div>
-              <div class="hero__float-val">5.0</div>
+              <div class="hero__float-val">4.9</div>
               <div class="hero__float-lbl">Google Rating</div>
             </div>
           </div>
@@ -153,31 +176,32 @@
       </div>
     </section>
 
-    <!-- TICKER -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker__inner">
-        <div class="marquee-track">
-          <span class="ticker__item"><span class="ticker__dot"></span>Wedding Planning</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Corporate Events</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Birthday Celebrations</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Mehendi Ceremonies</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Ring Ceremonies</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Baby Showers</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Anniversary Events</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Theme Parties</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Award Nights</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Wedding Planning</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Corporate Events</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Birthday Celebrations</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Mehendi Ceremonies</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Ring Ceremonies</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Baby Showers</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Anniversary Events</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Theme Parties</span>
-          <span class="ticker__item"><span class="ticker__dot"></span>Award Nights</span>
-        </div>
-      </div>
+<!-- TICKER with clickable links -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__inner">
+    <div class="marquee-track">
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services.html#weddings">Wedding Planning</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services.html#corporate">Corporate Events</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services.html#birthdays">Birthday Celebrations</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/mehndi.html">Mehendi Ceremonies</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/varmala.html">Ring Ceremonies</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/baby-shower.html">Baby Showers</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/birthday-party.html">Anniversary Events</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services.html#theme">Theme Parties</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/award-nights.html">Award Nights</a></span>
+      <!-- duplicate for seamless loop (same links) -->
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services.html#weddings">Wedding Planning</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services.html#corporate">Corporate Events</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services.html#birthdays">Birthday Celebrations</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/mehndi.html">Mehendi Ceremonies</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/varmala.html">Ring Ceremonies</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/baby-shower.html">Baby Showers</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/birthday-party.html">Anniversary Events</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services.html#theme">Theme Parties</a></span>
+      <span class="ticker__item"><span class="ticker__dot"></span><a href="services/award-nights.html">Award Nights</a></span>
     </div>
+  </div>
+</div>
 
     <!-- ABOUT -->
     <section class="about" id="about" aria-labelledby="about-title">
@@ -189,56 +213,61 @@
           </div>
         </div>
         <div class="about__badge">
-          <div class="about__badge-num">12</div>
+          <div class="about__badge-num">10</div>
           <div class="about__badge-label">Years of<br/>Excellence</div>
         </div>
       </div>
 
       <div class="about__content reveal-right">
-        <div class="section-label">Our Story</div>
-        <h2 class="section-title" id="about-title">Born in Patna,<br/><em>Loved Across Bihar</em></h2>
-        <blockquote class="about__quote">
-          "We don't just plan events — we architect emotions, weave memories, and create moments that families treasure for a lifetime."
-        </blockquote>
-        <p class="section-subtitle">
-          Founded in 2012, Ayojan House began with a simple belief: every family in Bihar deserves an event that feels truly extraordinary. Over 12 years and 500+ events, we have grown into Bihar's most respected event management company — trusted by Patna's finest families, top corporations, and thousands of happy clients across the state.
-        </p>
-        <div class="about__features">
-          <div class="about__feat">
-            <div class="about__feat-icon">🎯</div>
-            <div>
-              <div class="about__feat-title">Vision-First Planning</div>
-              <div class="about__feat-desc">We begin every event by understanding your dream before a single decoration is placed.</div>
-            </div>
-          </div>
-          <div class="about__feat">
-            <div class="about__feat-icon">👑</div>
-            <div>
-              <div class="about__feat-title">Royal Execution</div>
-              <div class="about__feat-desc">Every detail — from florals to lighting to catering — is curated with luxury standards.</div>
-            </div>
-          </div>
-          <div class="about__feat">
-            <div class="about__feat-icon">🤝</div>
-            <div>
-              <div class="about__feat-title">Family-Like Care</div>
-              <div class="about__feat-desc">Our team stands with you from first consultation to final farewell, every single time.</div>
-            </div>
-          </div>
-        </div>
-        <a href="services.html" class="btn btn-primary">Explore Our Services →</a>
+  <div class="section-label">Our Story</div>
+  <h2 class="section-title" id="about-title">Born in Patna,<br/><em>Loved Across Bihar</em></h2>
+  <blockquote class="about__quote">
+    "We don't just plan events — we architect emotions, weave memories, and create moments that families treasure for a lifetime."
+  </blockquote>
+  <p class="section-subtitle">
+    Founded in 2016 by <strong>Vikash Kumar Choubey</strong>, Ayojan House began with a simple belief: every family in Bihar deserves an event that feels truly extraordinary. Over 10 years and 300+ events, we have grown into Bihar's most respected event management company — trusted by Patna's finest families, top corporations, and thousands of happy clients across the state.
+  </p>
+  <div class="about__features">
+    <div class="about__feat">
+      <div class="about__feat-icon">🎯</div>
+      <div>
+        <div class="about__feat-title">Vision-First Planning</div>
+        <div class="about__feat-desc">We begin every event by understanding your dream before a single decoration is placed.</div>
       </div>
+    </div>
+    <div class="about__feat">
+      <div class="about__feat-icon">👑</div>
+      <div>
+        <div class="about__feat-title">Royal Execution</div>
+        <div class="about__feat-desc">Every detail — from florals to lighting to catering — is curated with luxury standards.</div>
+      </div>
+    </div>
+    <div class="about__feat">
+      <div class="about__feat-icon">🤝</div>
+      <div>
+        <div class="about__feat-title">Family-Like Care</div>
+        <div class="about__feat-desc">Our team stands with you from first consultation to final farewell, every single time.</div>
+      </div>
+    </div>
+  </div>
+  <!-- Optional founder quote card -->
+  <div style="margin-top: 30px; padding: 16px; background: #faf6ee; border-radius: 16px; border-left: 4px solid #C9A84C;">
+    <p style="margin: 0; font-style: italic; color: #1f2937;">“Every event we plan is a reflection of our passion and personal commitment – we treat every celebration as if it were our own family’s.”</p>
+    <p style="margin: 8px 0 0; font-weight: 600; color: #6B0F2B;">— Vikash Kumar Choubey, Founder, Ayojan House</p>
+  </div>
+  <a href="services.html" class="btn btn-primary">Explore Our Services →</a>
+</div>
     </section>
 
     <!-- STATS -->
     <section class="stats-bar" aria-label="Our achievements">
       <div class="stats-bar__inner">
         <div class="stats-bar__item reveal">
-          <div class="stats-bar__num" data-count="500" data-suffix="+">0+</div>
+          <div class="stats-bar__num" data-count="300" data-suffix="+">0+</div>
           <div class="stats-bar__label">Events Executed</div>
         </div>
         <div class="stats-bar__item reveal" style="transition-delay:.15s">
-          <div class="stats-bar__num" data-count="12" data-suffix="+">0+</div>
+          <div class="stats-bar__num" data-count="10" data-suffix="+">0+</div>
           <div class="stats-bar__label">Years of Experience</div>
         </div>
         <div class="stats-bar__item reveal" style="transition-delay:.3s">
@@ -310,15 +339,16 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS with Google Review Links -->
     <section class="testimonials" id="testimonials" aria-labelledby="testimonials-title">
       <div class="section-header reveal">
         <div class="section-label">Client Stories</div>
         <h2 class="section-title" id="testimonials-title">Words That <em>Warm Our Hearts</em></h2>
-        <p class="section-subtitle">Over 500 families trusted us with their most precious moments. Here's what they say.</p>
+        <p class="section-subtitle">Over 300 families trusted us with their most precious moments. Here's what they say.</p>
       </div>
       <div class="testimonials__slider" role="region" aria-label="Testimonials">
         <div class="testimonials__track">
+          <!-- Testimonial 1 -->
           <div class="testimonial-card">
             <div class="testimonial-card__img-wrap">
               <div class="testimonial-card__img-ph">
@@ -337,8 +367,13 @@
                   <div class="testimonial-card__event">Grand Wedding · Patna, 2024</div>
                 </div>
               </div>
+              <a href="https://www.google.com/search?q=AYOJAN+HOUSE+%7C%7C+wedding+planner+in+patna+%7C%7C+event+planner+in+patna+%7C%7C+event+management+company+in+patna+Reviews&sca_esv=49f5cc03c0aa5178&sxsrf=ANbL-n7cH5IuqrZ8Skl57aiU_zeknSyUnw:1780651241388" target="_blank" rel="noopener noreferrer" class="google-review-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                View on Google
+              </a>
             </div>
           </div>
+          <!-- Testimonial 2 -->
           <div class="testimonial-card">
             <div class="testimonial-card__img-wrap">
               <div class="testimonial-card__img-ph">
@@ -357,12 +392,17 @@
                   <div class="testimonial-card__event">Corporate Annual Day · Bihar 2024</div>
                 </div>
               </div>
+              <a href="https://www.google.com/search?q=AYOJAN+HOUSE+%7C%7C+wedding+planner+in+patna+%7C%7C+event+planner+in+patna+%7C%7C+event+management+company+in+patna+Reviews" target="_blank" rel="noopener noreferrer" class="google-review-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                View on Google
+              </a>
             </div>
           </div>
+          <!-- Testimonial 3 -->
           <div class="testimonial-card">
             <div class="testimonial-card__img-wrap">
               <div class="testimonial-card__img-ph">
-                <img src="../assets/images/about-4.jpeg" alt="Corporate event by Ayojan House" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+                <img src="../assets/images/about-4.jpeg" alt="Family celebration" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
               </div>
               <div class="testimonial-card__frame"></div>
             </div>
@@ -377,12 +417,17 @@
                   <div class="testimonial-card__event">Mehendi & Sangeet · Danapur, 2023</div>
                 </div>
               </div>
+              <a href="https://www.google.com/search?q=AYOJAN+HOUSE+%7C%7C+wedding+planner+in+patna+%7C%7C+event+planner+in+patna+%7C%7C+event+management+company+in+patna+Reviews" target="_blank" rel="noopener noreferrer" class="google-review-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                View on Google
+              </a>
             </div>
           </div>
+          <!-- Testimonial 4 -->
           <div class="testimonial-card">
             <div class="testimonial-card__img-wrap">
               <div class="testimonial-card__img-ph">
-                <img src="../assets/images/about-6.jpeg" alt="Corporate event by Ayojan House" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+                <img src="../assets/images/about-6.jpeg" alt="Birthday celebration" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
               </div>
               <div class="testimonial-card__frame"></div>
             </div>
@@ -397,12 +442,17 @@
                   <div class="testimonial-card__event">60th Birthday Surprise · Patna, 2023</div>
                 </div>
               </div>
+              <a href="https://www.google.com/search?q=AYOJAN+HOUSE+%7C%7C+wedding+planner+in+patna+%7C%7C+event+planner+in+patna+%7C%7C+event+management+company+in+patna+Reviews" target="_blank" rel="noopener noreferrer" class="google-review-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                View on Google
+              </a>
             </div>
           </div>
+          <!-- Testimonial 5 -->
           <div class="testimonial-card">
             <div class="testimonial-card__img-wrap">
               <div class="testimonial-card__img-ph">
-                <img src="../assets/images/about-7.jpeg" alt="Corporate event by Ayojan House" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+                <img src="../assets/images/about-7.jpeg" alt="Ring ceremony" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
               </div>
               <div class="testimonial-card__frame"></div>
             </div>
@@ -417,6 +467,10 @@
                   <div class="testimonial-card__event">Ring Ceremony · Patna, 2024</div>
                 </div>
               </div>
+              <a href="https://www.google.com/search?q=AYOJAN+HOUSE+%7C%7C+wedding+planner+in+patna+%7C%7C+event+planner+in+patna+%7C%7C+event+management+company+in+patna+Reviews" target="_blank" rel="noopener noreferrer" class="google-review-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                View on Google
+              </a>
             </div>
           </div>
         </div>
@@ -475,9 +529,9 @@
       </div>
     </section>
 
-    <!-- LOCATION -->
+    <!-- LOCATION with responsive grid -->
     <section style="padding:100px 5%;background:var(--ivory);" id="location" aria-labelledby="location-title">
-      <div style="max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+      <div class="location-grid" style="max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
         <div class="reveal-left">
           <div class="section-label">Find Us</div>
           <h2 class="section-title" id="location-title">Visit Us in <em>Danapur, Patna</em></h2>
@@ -532,53 +586,53 @@
   </main>
 
   <footer class="footer" role="contentinfo">
-  <div class="footer__grid">
-    <div>
-      <div class="footer__brand-name">Ayojan House</div>
-      <p class="footer__brand-desc">Bihar's premier event planning company, crafting extraordinary celebrations since 2012. Based in Danapur, Patna — trusted across the state for weddings, corporate events and every joyful occasion in between.</p>
-      <div class="footer__social">
-        <a href="#" class="footer__social-link" aria-label="Facebook">f</a>
-        <a href="#" class="footer__social-link" aria-label="Instagram">in</a>
-        <a href="#" class="footer__social-link" aria-label="YouTube">▶</a>
-        <a href="#" class="footer__social-link" aria-label="WhatsApp">✉</a>
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-name">Ayojan House</div>
+        <p class="footer__brand-desc">Bihar's premier event planning company, crafting extraordinary celebrations since 2016. Based in Danapur, Patna — trusted across the state for weddings, corporate events and every joyful occasion in between.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Facebook">f</a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">in</a>
+          <a href="#" class="footer__social-link" aria-label="YouTube">▶</a>
+          <a href="#" class="footer__social-link" aria-label="WhatsApp">✉</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Quick Links</div>
+        <ul class="footer__col-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Our Services</div>
+        <ul class="footer__col-links">
+          <li><a href="services.html#weddings">Wedding Planning</a></li>
+          <li><a href="services.html#corporate">Corporate Events</a></li>
+          <li><a href="services.html#birthdays">Birthday Parties</a></li>
+          <li><a href="services.html#prewedding">Pre-Wedding Functions</a></li>
+          <li><a href="services.html#theme">Theme Parties</a></li>
+          <li><a href="services.html#catering">Catering & Décor</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Get In Touch</div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📍</span><span>Mithila Colony, Danapur, Patna, Bihar 800012</span></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">📞</span><a href="tel:+918210856330">+91 82108 56330</a></div>
+        <div class="footer__contact-item"><span class="footer__contact-icon">✉</span><a href="mailto:hello@ayojanhouse.in">hello@ayojanhouse.in</a></div>
+        <div style="margin-top:20px;"><a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.75rem;">Book Now ✦</a></div>
       </div>
     </div>
-    <div>
-      <div class="footer__col-title">Quick Links</div>
-      <ul class="footer__col-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="services.html">Our Services</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
+    <div class="footer__bottom">
+      <span>© 2024 Ayojan House. All rights reserved.</span>
+      <span class="footer__bottom-love">Made with ♥ in Patna, Bihar</span>
+      <span class="footer__credit"> | Created by <a href="https://protfolio-om.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #C9A84C; text-decoration: none;">Om</a></span>
     </div>
-    <div>
-      <div class="footer__col-title">Our Services</div>
-      <ul class="footer__col-links">
-        <li><a href="services.html#weddings">Wedding Planning</a></li>
-        <li><a href="services.html#corporate">Corporate Events</a></li>
-        <li><a href="services.html#birthdays">Birthday Parties</a></li>
-        <li><a href="services.html#prewedding">Pre-Wedding Functions</a></li>
-        <li><a href="services.html#theme">Theme Parties</a></li>
-        <li><a href="services.html#catering">Catering & Décor</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer__col-title">Get In Touch</div>
-      <div class="footer__contact-item"><span class="footer__contact-icon">📍</span><span>Mithila Colony, Danapur, Patna, Bihar 800012</span></div>
-      <div class="footer__contact-item"><span class="footer__contact-icon">📞</span><a href="tel:+918210856330">+91 82108 56330</a></div>
-      <div class="footer__contact-item"><span class="footer__contact-icon">✉</span><a href="mailto:hello@ayojanhouse.in">hello@ayojanhouse.in</a></div>
-      <div style="margin-top:20px;"><a href="contact.html" class="btn btn-gold" style="padding:10px 22px;font-size:.75rem;">Book Now ✦</a></div>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© 2024 Ayojan House. All rights reserved.</span>
-    <span class="footer__bottom-love">Made with ♥ in Patna, Bihar</span>
-    <span class="footer__credit"> | Created by <a href="https://protfolio-om.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #C9A84C; text-decoration: none;">Om</a></span>
-  </div>
-</footer>
+  </footer>
 
   <script src="scripts/main.js"></script>
   <!-- CHATBOT WIDGET - Enhanced with WhatsApp number after every response -->
@@ -961,6 +1015,7 @@
   })();
 </script>
 <!-- Floating WhatsApp & Instagram CTA (Bottom Right) -->
+<!-- Floating WhatsApp, Instagram & Call CTA (Bottom Right) -->
 <style>
   .social-cta {
     position: fixed;
@@ -994,6 +1049,9 @@
   .social-cta .instagram-icon {
     background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   }
+  .social-cta .call-icon {
+    background: #C9A84C;
+  }
   .social-cta svg {
     width: 28px;
     height: 28px;
@@ -1013,7 +1071,7 @@
     visibility: hidden;
     transition: opacity 0.2s, visibility 0.2s;
     pointer-events: none;
-    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-family: system-ui, sans-serif;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
   .social-cta .tooltip::after {
@@ -1031,26 +1089,21 @@
     visibility: visible;
   }
   @media (max-width: 480px) {
-    .social-cta {
-      bottom: 20px;
-      right: 20px;
-      gap: 10px;
-    }
-    .social-cta a {
-      width: 48px;
-      height: 48px;
-    }
-    .social-cta svg {
-      width: 24px;
-      height: 24px;
-    }
-    .social-cta .tooltip {
-      display: none;
-    }
+    .social-cta { bottom: 20px; right: 20px; gap: 10px;}
+    .social-cta a { width: 48px; height: 48px;}
+    .social-cta svg { width: 24px; height: 24px;}
+    .social-cta .tooltip { display: none;}
   }
 </style>
 
 <div class="social-cta">
+  <!-- Call CTA (Direct Phone Call) -->
+  <a href="tel:+918210856330" target="_blank" rel="noopener noreferrer" class="call-icon" aria-label="Call Ayojan House">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
+    <span class="tooltip">Call Us</span>
+  </a>
   <!-- WhatsApp -->
   <a href="https://wa.me/918210856330" target="_blank" rel="noopener noreferrer" class="whatsapp-icon" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
